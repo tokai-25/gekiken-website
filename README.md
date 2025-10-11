@@ -1,0 +1,107 @@
+[index.html](https://github.com/user-attachments/files/22863688/index.html)
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>東海大学演劇研究会 公式サイト</title>
+
+  <!-- 🔍 SEO / SNS共有用メタ情報 -->
+  <meta name="description" content="東海大学演劇研究会の公式サイト。最新公演情報・過去アーカイブ・予約フォームなどを掲載。">
+  <meta property="og:title" content="東海大学演劇研究会 公式サイト">
+  <meta property="og:description" content="最新公演『まほろばのトロイメライ』ほか活動情報を掲載。">
+  <meta property="og:image" content="https://example.com/images/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- favicon -->
+  <link rel="icon" href="images/favicon.png" type="image/png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ✅ Heroセクション -->
+  <header class="hero">
+    <div class="hero-overlay">
+      <h1>東海大学演劇研究会</h1>
+      <p>演じる、創る、伝える。学生による演劇の世界へようこそ。</p>
+    </div>
+  </header>
+
+  <!-- ✅ ナビゲーション -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="event/2025/index_S.html">最新公演情報</a></li>
+      <li><a href="about.html">団体紹介</a></li>
+      <li><a href="access.html">アクセス</a></li>
+      <li><a href="archive.html">公演アーカイブ</a></li>
+      <li><a href="https://form.run/embed/@gongfuheimu--Y3pweS46koJuSBcKwMdl?embed=direct" rel="stylesheet">お問い合わせ</a></li>
+      <li><a href="https://form.run/@gongfuheimu--8YjbBj7n5VBQ5u7cOVHq" target="_blank" rel="noopener noreferrer">予約フォーム</a></li>
+    </ul>
+  </nav>
+
+  <!-- ✅ 最新公演案内 -->
+  <section class="card">
+    <h2>最新公演情報</h2>
+    <p><strong>192回 建学祭公演「まほろばのトロイメライ」</strong><br>
+      日程：2025年11月1日〜3日<br>
+      会場：学内ホール（建学祭）</p>
+    <a href="event/2025/index_S.html" class="button">公演詳細を見る</a>
+  </section>
+
+  <!-- ✅ クイックリンクセクション -->
+  <section class="quick-links">
+    <div class="link-card">
+      <h3>アクセス</h3>
+      <p>会場までの道順・最寄駅などはこちら。</p>
+      <a href="access.html" class="button">アクセスページへ</a>
+    </div>
+
+    <div class="link-card">
+      <h3>予約フォーム</h3>
+      <p>建学祭公演のご予約はこちらから。</p>
+      <a href="https://form.run/@gongfuheimu--8YjbBj7n5VBQ5u7cOVHq" target="_blank" rel="noopener noreferrer" class="button">予約する</a>
+    </div>
+
+    <div class="link-card">
+      <h3>公演アーカイブ</h3>
+      <p>これまでの上演作品の記録はこちら。</p>
+      <a href="archive.html" class="button">アーカイブを見る</a>
+    </div>
+  </section>
+
+  <!-- ✅ お知らせ -->
+  <section class="news">
+    <h2>お知らせ</h2>
+    <ul>
+      <li><time datetime="2025-10-04">2025.10.04</time> 建学祭公演2回通し終了。</li>
+      <li><time datetime="2025-09-20">2025.09.20</time> 夏公演の写真を追加しました。</li>
+      <li><time datetime="2025-08-10">2025.08.10</time> 新入生向け説明会を実施しました。</li>
+    </ul>
+  </section>
+
+  <!-- SNSシェアボタンカード -->
+  <section class="card">
+    <h2>SNSシェア</h2>
+    <div class="sns-share">
+      <!-- Xボタン -->
+      <a href="https://x.com/TokaiGekiken" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#1DA1F2">
+          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.4.36a9.05 9.05 0 0 1-2.88 1.1 4.52 4.52 0 0 0-7.72 4.13A12.85 12.85 0 0 1 1.64 1.13 4.5 4.5 0 0 0 3 7.72a4.48 4.48 0 0 1-2-.55v.06a4.52 4.52 0 0 0 3.63 4.43 4.5 4.5 0 0 1-2 .08 4.52 4.52 0 0 0 4.22 3.13 9.06 9.06 0 0 1-5.6 1.93A9.2 9.2 0 0 1 0 17.55 12.8 12.8 0 0 0 6.94 20c8.33 0 12.88-6.9 12.88-12.88 0-.2 0-.39-.01-.58A9.22 9.22 0 0 0 23 3z"/>
+        </svg> X
+      </a>
+
+      <!-- Instagramボタン -->
+      <a href="https://www.instagram.com/tokai.gekiken?igsh=MWt6anozNHg1cmRicQ==" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#E4405F">
+          <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm4.5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-2a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+        </svg> Instagram
+      </a>
+    </div>
+  </section>
+
+
+</body>
+</html>
