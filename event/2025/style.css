@@ -1,0 +1,157 @@
+/* =============================
+   基本設定（共通）
+============================= */
+body {
+  font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+  background: #fafafa;
+  color: #333;
+  margin: 0;
+  padding: 0 1rem;
+  line-height: 1.8;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 2.5rem 0 1.5rem;
+  color: #111;
+}
+
+/* =============================
+   ナビゲーション
+============================= */
+nav {
+  background: #111;
+  padding: 0.8rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+nav a:hover {
+  background: #4f46e5;
+}
+
+/* =============================
+   カード共通デザイン
+============================= */
+.card {
+  background: #fff;
+  max-width: 700px;
+  margin: 1.8rem auto;
+  padding: 1.8rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  border-left: 6px solid #4f46e5;
+  padding-left: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+/* =============================
+   公演日時リスト
+============================= */
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card ul li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #eee;
+}
+.card ul li:last-child {
+  border-bottom: none;
+}
+
+/* =============================
+   リンクボタン
+============================= */
+a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.button {
+  display: inline-block;
+  background: #4f46e5;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+.button:hover {
+  background: #3730a3;
+}
+
+/* =============================
+   SNSシェア
+============================= */
+.sns-share {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+.sns-share a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+.sns-share a:hover {
+  opacity: 0.8;
+}
+
+/* =============================
+   レスポンシブ対応
+============================= */
+@media (max-width: 600px) {
+  body {
+    padding: 0 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .card {
+    padding: 1.2rem 1.4rem;
+  }
+
+  nav ul {
+    gap: 0.8rem;
+  }
+
+  nav a {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+}
