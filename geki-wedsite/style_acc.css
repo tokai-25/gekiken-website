@@ -1,0 +1,272 @@
+/* =============================
+   アクセスページ専用CSS
+============================= */
+.access-page {
+  font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+  background: #fafafa;
+  color: #333;
+  line-height: 1.8;
+  padding: 0 1rem;
+}
+
+/* --- ナビゲーション --- */
+.access-page nav {
+  background: #111;
+  padding: 0.8rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.access-page nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.access-page nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.access-page nav a:hover {
+  background: #4f46e5;
+}
+
+/* --- サブヒーロー --- */
+.access-page .sub-hero {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px 80px;
+  position: relative;
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.access-page .sub-hero .hero-overlay {
+  background: rgba(0,0,0,0.45);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.access-page .sub-hero .hero-overlay h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.access-page .sub-hero .hero-overlay p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* --- 地図セクション --- */
+.access-page .map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  margin-top: 20px;
+}
+
+.access-page .map-container iframe {
+  width: 100%;
+  height: 400px;
+  border: 0;
+}
+
+/* --- 写真ギャラリー --- */
+.access-page .photo-gallery {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f7f7f7;
+}
+
+.access-page .photo-gallery h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.access-page .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.access-page .gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.access-page .gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* --- 交通アクセスカード --- */
+.access-page .card {
+  background: #fff;
+  max-width: 700px;
+  margin: 1.8rem auto;
+  padding: 1.8rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.access-page .card h2 {
+  border-left: 6px solid #4f46e5;
+  padding-left: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.access-page .card h3 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  border-left: 4px solid #000;
+  padding-left: 0.5em;
+}
+
+.access-page .card ul {
+  list-style: disc;
+  margin-left: 1.5em;
+}
+
+/* --- ボタン --- */
+.access-page .button {
+  display: inline-block;
+  background: #4f46e5;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.access-page .button:hover {
+  background: #3730a3;
+}
+
+/* --- SNSシェア --- */
+.access-page .sns-share {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.access-page .sns-share a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+
+.access-page .sns-share a:hover {
+  opacity: 0.8;
+}
+
+/* --- リンクカード --- */
+.access-page .quick-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.3rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.access-page .link-card {
+  background: #fff;
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  padding: 18px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.access-page .link-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.access-page .link-card h3 {
+  color: #4f46e5;
+  font-size: 1.1rem;
+}
+
+/* --- フッター --- */
+.access-page footer {
+  background: #f5f5f5;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.access-page footer a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.access-page footer a:hover {
+  text-decoration: underline;
+}
+
+/* =============================
+   レスポンシブ対応
+============================= */
+@media (max-width: 768px) {
+  .access-page .gallery {
+    grid-template-columns: 1fr; /* 1列表示に */
+  }
+
+  .access-page .map-container iframe {
+    height: 300px; /* 高さを少し下げる */
+  }
+
+  .access-page .card, .access-page .link-card {
+    max-width: 95%;
+    padding: 1rem 1.2rem;
+  }
+
+  .access-page .sub-hero {
+    padding: 60px 15px 50px;
+  }
+
+  .access-page .sub-hero .hero-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .access-page .sub-hero .hero-overlay p {
+    font-size: 1rem;
+  }
+
+  .access-page nav ul {
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+  }
+}
