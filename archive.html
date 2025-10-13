@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>公演アーカイブ | 東海大学演劇研究会</title>
+  <link rel="icon" href="images/favicon.png" type="image/png">
+
+  <!-- CSS: ホームと統合 -->
+  <style>
+    /* ===== ベース設定 ===== */
+    body {
+      font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+      background: #fafafa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+    }
+
+    /* ===== Hero / Sub-Hero ===== */
+    .hero, .sub-hero {
+      text-align: center;
+      position: relative;
+      border-radius: 12px;
+      color: #fff;
+    }
+
+    .sub-hero {
+      background: #000; /* 黒背景 */
+      padding: 100px 20px 80px;
+    }
+
+    .hero-overlay {
+      background: rgba(0, 0, 0, 0.45);
+      text-align: center;
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .sub-hero .hero-overlay h1 {
+      font-size: 2.5rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+    .sub-hero .hero-overlay p { font-size: 1.2rem; opacity: 0.9; }
+
+    /* ===== ナビゲーション ===== */
+    .main-nav {
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 0;
+      padding: 0.8rem 1rem;
+    }
+    .main-nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 8px;
+      transition: all 0.25s;
+    }
+    .main-nav a:hover { background: #f0f0f0; }
+    .main-nav a[target="_blank"] { background: #4f46e5; color: #fff; }
+    .main-nav a[target="_blank"]:hover { background: #3730a3; }
+
+    /* ===== カード ===== */
+    .card {
+      background: #fff;
+      max-width: 700px;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+      margin: 36px auto;
+    }
+    .card h2 {
+      border-left: 5px solid #4f46e5;
+      padding-left: 10px;
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #222;
+    }
+    .card p, .card li { font-size: 0.95rem; }
+
+    /* ===== ボタン ===== */
+    .button {
+      display: inline-block;
+      margin-top: 10px;
+      background: #4f46e5;
+      color: #fff;
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+    .button:hover { background: #3730a3; }
+
+    /* ===== フッター ===== */
+    footer {
+      background: #f5f5f5;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+      color: #555;
+      font-size: 0.9rem;
+    }
+    footer a { color: #4f46e5; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ===== スマホ対応 ===== */
+    @media (max-width: 600px) {
+      .sub-hero { padding: 70px 15px 50px; }
+      .sub-hero .hero-overlay h1 { font-size: 1.8rem; }
+      .sub-hero .hero-overlay p { font-size: 1rem; }
+      .card { max-width: 90%; padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sub-Hero（黒背景） -->
+  <header class="sub-hero">
+    <div class="hero-overlay">
+      <h1>公演アーカイブ</h1>
+      <p>これまでの上演作品をご紹介</p>
+    </div>
+  </header>
+
+  <!-- ナビ -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="about.html">団体紹介</a></li>
+      <li><a href="access.html">アクセス</a></li>
+      <li><a href="archive.html" style="font-weight:bold;">公演アーカイブ</a></li>
+      <li><a href="https://form.run/embed/@gongfuheimu--Y3pweS46koJuSBcKwMdl?embed=direct" target="_blank">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <!-- 公演カード -->
+  <section class="card">
+    <h2>夏公演 2025</h2>
+    <p><strong>タイトル：</strong>夏公演「〇〇の冒険」<br>
+       <strong>日程：</strong>2025年7月中旬<br>
+       <strong>会場：</strong>学内ホール</p>
+    <img src="image/スクリーンショット 2025-10-13 191805.jpeg" alt="夏公演の様子" style="width:100%; border-radius:12px; margin-top:10px;">
+    <a href="event/2025/index_F.html" target="_blank" rel="noopener noreferrer" class="button">詳細を見る</a>
+  </section>
+
+  <section class="card">
+    <h2>建学祭公演 2025</h2>
+    <p><strong>タイトル：</strong>192回 建学祭公演「まほろばのトロイメライ」<br>
+       <strong>日程：</strong>2025年11月1日〜3日<br>
+       <strong>会場：</strong>コムスクエア音楽ホール</p>
+    <img src="image/※予約フォーム公開に伴い、予約数が上限を超える可能性があります。 今後の情報は随時、InstagramおよびXにてお知らせいたします。 (1).jpg" alt="建学祭公演の様子" style="width:100%; border-radius:12px; margin-top:10px;">
+    <a href="event/2025/index_S.html" target="_blank" rel="noopener noreferrer" class="button">詳細を見る</a>
+  </section>
+
+  <section class="card">
+    <h2>卒業公演 2026</h2>
+    <p><strong>タイトル：</strong>卒業公演「未定」<br>
+       <strong>日程：</strong>2026年3月<br>
+       <strong>会場：</strong>学内ホール</p>
+    <img src="images/graduation2026.jpg" alt="卒業公演の様子" style="width:100%; border-radius:12px; margin-top:10px;">
+    <a href="event/2026/index_X.html" target="_blank" rel="noopener noreferrer" class="button">詳細を見る</a>
+  </section>
+
+  <footer>
+    &copy; 2025 東海大学演劇研究会
+  </footer>
+
+</body>
+</html>

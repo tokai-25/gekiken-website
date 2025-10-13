@@ -1,0 +1,280 @@
+/* =============================
+   ベース設定
+============================= */
+body {
+  font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+  background: #fafafa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+}
+
+/* Hero & Sub Hero */
+.hero, .sub-hero {
+  text-align: center;
+  position: relative;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.hero {
+  background: url('images/top-bg.jpg') center/cover no-repeat;
+  height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  /* 黒の透過度を少し柔らかく */
+  background: rgba(20, 20, 20, 0.6);
+  text-align: center;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero h1 { font-size: 2rem; margin-bottom: 0.4rem; letter-spacing: 0.03em; }
+.hero p { font-size: 1rem; opacity: 0.9; }
+
+.sub-hero {
+  /* 完全黒からダークグレーに変更 */
+  background: #111;
+  padding: 100px 20px 80px;
+}
+
+.sub-hero .hero-overlay h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+.sub-hero .hero-overlay p { font-size: 1.2rem; opacity: 0.9; }
+
+
+/* =============================
+   ナビゲーション
+============================= */
+.main-nav {
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+  padding: 0.8rem 1rem;
+}
+.main-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: all 0.25s;
+}
+.main-nav a:hover { background: #f0f0f0; }
+.main-nav a[target="_blank"] { background: #4f46e5; color: #fff; }
+.main-nav a[target="_blank"]:hover { background: #3730a3; }
+
+/* =============================
+   カード・お知らせ・アーカイブ共通
+============================= */
+.card, .news {
+  background: #fff;
+  max-width: 700px;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+  margin: 36px auto;
+}
+
+.news { margin: 3rem auto; }
+
+.card h2, .news h2 {
+  border-left: 5px solid #4f46e5;
+  padding-left: 10px;
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.card h3 {
+  margin-top: 1.5em;
+  font-size: 1.2rem;
+  border-left: 4px solid #000;
+  padding-left: 0.5em;
+}
+
+.card p, .card li, .news time { font-size: 0.95rem; }
+
+/* =============================
+   公演アーカイブ用追加スタイル
+============================= */
+.archive-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.archive-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  margin-bottom: 30px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.archive-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.archive-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.archive-card-content {
+  padding: 18px;
+}
+.archive-card-content h3 {
+  margin-top: 0;
+  color: #4f46e5;
+}
+.archive-card-content p {
+  font-size: 0.95rem;
+  margin: 6px 0;
+}
+.archive-card-content .button {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* =============================
+   写真ギャラリー
+============================= */
+.photo-gallery {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f7f7f7;
+}
+.photo-gallery h2 { font-size: 1.8rem; margin-bottom: 30px; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* =============================
+   ボタン・リンクカード
+============================= */
+.button, .link-card { transition: 0.2s; }
+
+.button {
+  display: inline-block;
+  margin-top: 10px;
+  background: #4f46e5;
+  color: #fff;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: 8px;
+}
+.button:hover { background: #3730a3; }
+
+.quick-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.3rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.link-card {
+  background: #fff;
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  padding: 18px;
+  text-align: center;
+}
+.link-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.link-card h3 { color: #4f46e5; font-size: 1.1rem; }
+
+/* =============================
+   フッター
+============================= */
+footer {
+  background: #f5f5f5;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+footer a { color: #4f46e5; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* =============================
+   SNSシェア
+============================= */
+.sns-share {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+.sns-share a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+.sns-share a:hover { opacity: 0.8; }
+
+/* =============================
+   スマホ対応
+============================= */
+@media (max-width: 600px) {
+  .hero { height: 45vh; }
+  .hero-overlay { padding: 1.5rem; max-width: 90%; }
+  .hero h1 { font-size: 1.5rem; }
+  .sub-hero { padding: 70px 15px 50px; }
+  .sub-hero .hero-overlay h1 { font-size: 1.8rem; }
+  .sub-hero .hero-overlay p { font-size: 1rem; }
+  .card, .news, .link-card, .archive-card { max-width: 90%; padding: 18px; }
+  .link-card { width: 85%; }
+  .gallery img { height: 180px; }
+  .card h3 { font-size: 1rem; }
+  .main-nav ul { gap: 0.7rem; }
+  .archive-card img { height: 200px; }
+}
