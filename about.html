@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>東海大学演劇研究会 団体紹介</title>
+  <meta name="description" content="東海大学演劇研究会の団体紹介ページ。活動内容や公演、メンバーの雰囲気を紹介。">
+  <link rel="icon" href="../images/favicon.png" type="image/png">
+
+  <!-- CSS -->
+  <style>
+    :root {
+      --brand: #4f46e5;
+      --brand-dark: #3730a3;
+      --bg-light: #fafafa;
+      --text-main: #333;
+      --text-muted: #555;
+    }
+
+    body {
+      font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+      margin:0; padding:0;
+      background: var(--bg-light);
+      color: var(--text-main);
+      line-height:1.7;
+    }
+
+    /* ===== サブヒーロー ===== */
+    .sub-hero {
+      background: #000 url('../images/top-bg.jpg') center/cover no-repeat;
+      color:#fff;
+      text-align:center;
+      padding:80px 20px 60px;
+      position:relative;
+    }
+    .sub-hero .hero-overlay {
+      background: rgba(0,0,0,0.5);
+      padding:2rem 3rem;
+      border-radius:12px;
+      display:inline-block;
+    }
+    .sub-hero h1 { font-size:2.2rem; margin-bottom:0.5rem; }
+    .sub-hero p { font-size:1.2rem; opacity:0.9; }
+
+    /* ===== ナビ ===== */
+    .main-nav {
+      background:#fff;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+      position:sticky; top:0; z-index:10;
+    }
+    .main-nav ul {
+      list-style:none;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:1rem;
+      margin:0;
+      padding:0.8rem 1rem;
+    }
+    .main-nav a {
+      text-decoration:none;
+      color:#333;
+      font-weight:600;
+      padding:6px 14px;
+      border-radius:8px;
+      transition:0.25s;
+    }
+    .main-nav a:hover { background:#f0f0f0; }
+    .main-nav a[target="_blank"] { background: var(--brand); color:#fff; }
+    .main-nav a[target="_blank"]:hover { background: var(--brand-dark); }
+
+    /* ===== カード ===== */
+    .card {
+      background:#fff;
+      max-width:700px;
+      margin:40px auto;
+      padding:22px;
+      border-radius:16px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+      border-left:5px solid var(--brand);
+      padding-left:10px;
+      font-size:1.5rem;
+      color: var(--brand-dark);
+      margin-top:0; margin-bottom:15px;
+      text-align:center;
+    }
+    .catchphrase {
+      text-align:center;
+      font-size:1.2rem;
+      color: var(--brand);
+      font-weight:bold;
+      margin-bottom:15px;
+    }
+    .card p { font-size:1rem; color:var(--text-muted); margin-bottom:12px; }
+
+    /* ===== スライドショー ===== */
+    .slideshow-container { position:relative; max-width:100%; margin:20px auto; border-radius:12px; overflow:hidden; }
+    .slide { display:none; }
+    .slide img { width:100%; display:block; border-radius:12px; }
+    .prev, .next {
+      cursor:pointer;
+      position:absolute; top:50%;
+      transform:translateY(-50%);
+      color:#fff; font-weight:bold;
+      font-size:2em; padding:0 12px;
+      background:rgba(0,0,0,0.3); border-radius:50%;
+      user-select:none;
+    }
+    .prev { left:10px; } .next { right:10px; }
+    .slide.active { display:block; }
+
+    /* ===== CTAボタン ===== */
+    .cta { text-align:center; margin-top:15px; }
+    .button {
+      display:inline-block;
+      padding:9px 18px;
+      border-radius:10px;
+      font-weight:600;
+      text-decoration:none;
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color:#fff;
+      transition:0.25s;
+    }
+    .button:hover { opacity:0.9; transform:translateY(-2px); }
+
+    /* ===== 戻るボタン ===== */
+    .back { text-align:center; margin-top:20px; }
+    .back a { color:var(--brand); text-decoration:none; font-weight:600; transition:0.25s; }
+    .back a:hover { text-decoration:underline; }
+
+    /* ===== フッター ===== */
+    footer {
+      background:#f5f5f5;
+      text-align:center;
+      padding:2rem;
+      margin-top:3rem;
+      color:var(--text-muted);
+      font-size:0.9rem;
+    }
+    footer a { color:var(--brand); text-decoration:none; }
+    footer a:hover { text-decoration:underline; }
+    footer .sns-share { display:flex; justify-content:center; gap:1rem; margin-bottom:0.5rem; flex-wrap:wrap; }
+    footer .sns-share a { padding:6px 12px; border-radius:8px; background:var(--brand); color:#fff; text-decoration:none; transition:0.25s; }
+    footer .sns-share a:hover { opacity:0.85; }
+
+    /* ===== レスポンシブ ===== */
+    @media(max-width:768px){ .card h2{font-size:1.3rem;} .catchphrase{font-size:1.1rem;} .card p{font-size:0.95rem;} }
+    @media(max-width:480px){ .card h2{font-size:1.1rem;} .catchphrase{font-size:1rem;} .prev,.next{font-size:1.5em;padding:0 8px;} }
+  </style>
+</head>
+
+<body>
+  <!-- ヘッダー -->
+  <header class="sub-hero">
+    <div class="hero-overlay">
+      <h1>団体紹介</h1>
+      <p>演劇を楽しみ、仲間と成長する場</p>
+    </div>
+  </header>
+
+  <!-- ナビ -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="archive.html">公演アーカイブ</a></li>
+      <li><a href="about.html" style="font-weight:bold;">団体紹介</a></li>
+      <li><a href="event/2025/index_S.html">最新公演</a></li>
+      <li><a href="https://form.run/embed/@gongfuheimu--Y3pweS46koJuSBcKwMdl" target="_blank">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <!-- 団体紹介カード -->
+  <section class="card">
+    <h2>団体紹介</h2>
+    <p class="catchphrase">演劇を楽しみ、仲間と過ごす時間が宝物の演劇研究会</p>
+    <p>
+      <strong>演劇研究会</strong>は、週1～4回の活動で演劇の技術や表現力を磨く団体です。<br>
+      年間3回の公演を行い、学内外に魅力ある舞台を届けています。<br>
+      メンバー同士はとても仲が良く、活動中はもちろん恋バナで盛り上がるアットホームな雰囲気が魅力です。
+    </p>
+
+    <!-- スライドショー -->
+    <div class="slideshow-container">
+      <div class="slide active"><img src="image/DSC06289.JPG" alt="練習風景"></div>
+      <div class="slide"><img src="image/DSC06361.JPG" alt="舞台写真"></div>
+      <div class="slide"><img src="image/DSC06445.JPG" alt="メンバー写真"></div>
+      <a class="prev">&#10094;</a>
+      <a class="next">&#10095;</a>
+    </div>
+
+    <!-- お問い合わせボタン -->
+    <p class="cta">
+      演劇に挑戦したい方、仲間と一緒に楽しみたい方、大歓迎！<br>
+      <a href="https://form.run/@gongfuheimu--Y3pweS46koJuSBcKwMdl" target="_blank" class="button">
+        参加希望・お問い合わせはこちら
+      </a><br>
+      <small>（外部サイトに移動します）</small>
+    </p>
+
+    <!-- ホームに戻る -->
+    <div class="back">
+      <a href="index.html">← ホームに戻る</a>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <div class="sns-share">
+      <a href="https://x.com/TokaiGekiken" target="_blank">X</a>
+      <a href="https://www.instagram.com/tokai.gekiken" target="_blank">Instagram</a>
+    </div>
+    <p>お問い合わせ：<a href="mailto:tokaigekiken@gmail.com">tokaigekiken@gmail.com</a></p>
+    <p>&copy; 2025 東海大学演劇研究会</p>
+  </footer>
+
+  <!-- JS: スライドショー -->
+  <script>
+    let slides = document.querySelectorAll('.slide');
+    let current = 0;
+    function showSlide(index){
+      slides.forEach((s,i)=>s.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+    function nextSlide(){ current = (current+1)%slides.length; showSlide(current); }
+    function prevSlide(){ current = (current-1+slides.length)%slides.length; showSlide(current); }
+    document.querySelector('.next').addEventListener('click',nextSlide);
+    document.querySelector('.prev').addEventListener('click',prevSlide);
+    setInterval(nextSlide,5000);
+  </script>
+
+</body>
+</html>
