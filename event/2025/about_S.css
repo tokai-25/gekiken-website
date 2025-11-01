@@ -1,0 +1,159 @@
+body {
+  font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+  background: #fafafa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+}
+
+/* ==== ヘッダー ==== */
+header {
+  text-align: center;
+  background: #fff7f0;
+  padding: 2rem 1rem;
+  border-bottom: 3px solid #ffc8a2;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+.home-btn {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.4rem 1rem;
+  background: #ffb86b;
+  color: #fff;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.home-btn:hover {
+  background: #ff9e3d;
+}
+
+/* ==== ニュース ==== */
+.news-section {
+  background: #fff;
+  border-bottom: 2px solid #ffd6a5;
+  padding: 1rem;
+  text-align: center;
+}
+.news-scroll {
+  height: 2.5rem;
+  overflow: hidden;
+  position: relative;
+}
+.news-scroll ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  animation: scrollNews 10s linear infinite;
+}
+.news-scroll li {
+  line-height: 2.5rem;
+}
+@keyframes scrollNews {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-2.5rem); }
+  50% { transform: translateY(-5rem); }
+  75% { transform: translateY(-7.5rem); }
+  100% { transform: translateY(0); }
+}
+
+/* ==== カード共通 ==== */
+.card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin: 2rem auto;
+  padding: 1.5rem;
+  max-width: 900px;
+}
+.card h2 {
+  border-left: 6px solid #ffb86b;
+  padding-left: 0.5rem;
+}
+
+/* ==== ギャラリー ==== */
+.poster-gallery, .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.poster-gallery img, .gallery img {
+  width: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.poster-gallery img:hover, .gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* ==== 役者紹介 ==== */
+.cast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.cast-card {
+  padding: 1rem;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+.orange { background: #ffa53d; }
+.magenta { background: #ff4f92; }
+.red { background: #ff4141; }
+.yellow { background: #ffd43d; color: #333; }
+.white { background: #fff; color: #333; border: 2px solid #ddd; }
+.purple { background: #a45bff; }
+
+/* ==== フッター ==== */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #fff7f0;
+  border-top: 3px solid #ffc8a2;
+}
+footer p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* ==== アニメーション ==== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 0.8s forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==== スクロールトップ ==== */
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ffb86b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+}
+.scroll-top:hover {
+  background: #ff9e3d;
+}

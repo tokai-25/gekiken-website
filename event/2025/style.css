@@ -1,0 +1,176 @@
+/* =============================
+   ベース設定
+============================= */
+:root {
+  --brand: #4f46e5;
+  --brand-dark: #3730a3;
+  --bg-light: #fafafa;
+  --text-main: #333;
+  --text-muted: #555;
+}
+
+body {
+  font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+  background: var(--bg-light);
+  color: var(--text-main);
+  margin: 0;
+  padding: 0 1rem;
+  line-height: 1.8;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem 0 1rem;
+}
+
+/* =============================
+   サブヒーロー
+============================= */
+.sub-hero {
+  background: linear-gradient(rgba(20,20,20,0.55), rgba(20,20,20,0.55)),
+              url('../images/top-bg.jpg') center/cover no-repeat;
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.hero-overlay {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  max-width: 720px;
+}
+
+/* =============================
+   ナビゲーション
+============================= */
+.main-nav {
+  background: #111;
+  padding: 0.8rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.main-nav a:hover {
+  background: var(--brand);
+}
+
+/* =============================
+   カード共通
+============================= */
+.card {
+  background: #fff;
+  max-width: 700px;
+  margin: 1.5rem auto;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  border-left: 5px solid var(--brand);
+  padding-left: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+/* =============================
+   リスト
+============================= */
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card ul li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #eee;
+}
+.card ul li:last-child {
+  border-bottom: none;
+}
+
+/* =============================
+   リンク・ボタン
+============================= */
+a {
+  color: var(--brand);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.button {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.button:hover {
+  background: var(--brand-dark);
+}
+
+/* =============================
+   SNSシェア
+============================= */
+.sns-share {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.sns-share a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+
+.sns-share a:hover {
+  opacity: 0.8;
+}
+
+/* =============================
+   レスポンシブ
+============================= */
+@media (max-width: 600px) {
+  body { padding: 0 0.5rem; }
+  h1 { font-size: 1.6rem; }
+  .card { padding: 1.2rem 1.4rem; }
+  .main-nav ul { gap: 0.8rem; }
+  .main-nav a { padding: 6px 10px; font-size: 0.9rem; }
+}
