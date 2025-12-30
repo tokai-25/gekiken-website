@@ -49,8 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const roleText = document.getElementById('roleText');
 
     if (roleTrack && roleDescBox) {
-      // 【ポイント1】PCの時だけ無限ループ用に複製する
-      // スマホ(768px以下)では複製しないことで、スワイプ操作を分かりやすくする
+      // PCの時だけ無限ループ用に複製する
       if (window.innerWidth > 768) {
         const cloneItems = roleTrack.innerHTML;
         roleTrack.innerHTML += cloneItems;
@@ -62,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
           const name = item.getAttribute('data-name');
           const desc = item.getAttribute('data-desc');
           
-          // 表示の更新（フェード演出）
           roleDescBox.style.opacity = "0";
           setTimeout(() => {
             roleTitle.textContent = name;
@@ -71,9 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
             roleDescBox.style.transition = "opacity 0.4s ease";
             roleDescBox.style.opacity = "1";
             
-            // 【ポイント2】スマホの時、タップしたら説明文までスッと誘導する
+            // スマホの時、タップしたら説明文までスッと画面を誘導する
             if (window.innerWidth <= 768) {
-              // 少し時間を置いてからスクロール（箱が表示されるのを待つ）
               setTimeout(() => {
                 roleDescBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
               }, 100);
@@ -217,3 +214,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
