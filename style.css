@@ -191,34 +191,51 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
 /* ==========================================================================
    9. レスポンシブ & フッター
    ========================================================================== */
+/* ==========================================================================
+   9. レスポンシブ (スマホ・タブレット用完成版)
+   ========================================================================== */
 @media (max-width: 768px) {
-  /* セクションの余白を少し詰める */
+  /* セクション全体の余白をコンパクトに */
   section { padding: 40px 5%; }
 
-  /* 1. ヘッダーを低く、コンパクトに */
+  /* 1. ヘッダーをスリム化 */
   header {
-    height: 50px; /* 60pxから50pxに短縮 */
+    height: 55px;
     padding: 0 15px;
   }
 
-  /* 2. ロゴを少し小さくして収まりを良くする */
+  /* 2. ロゴのサイズ調整 */
   .logo {
-    font-size: 1rem; 
+    font-size: 1rem;
     white-space: nowrap;
   }
 
-  /* 3. ハンバーガーボタンを小さく */
+  /* 3. ハンバーガーボタンの調整 */
   .hamburger {
-    padding: 5px;
+    display: block;
+    position: relative;
     z-index: 2100;
+    padding: 5px;
   }
   .hamburger span {
-    width: 22px; /* 少し短く */
-    height: 1.5px; /* 少し細く */
+    width: 22px;
+    height: 1.5px;
     margin: 5px 0;
   }
 
-  /* 4. スマホメニュー内の文字と余白をコンパクトに */
+  /* 4. メインメッセージ（永遠の記憶...）のはみ出しを修正 */
+  .typing {
+    font-size: 1.4rem !important; /* スマホに収まるサイズに縮小 */
+    width: 100%;
+    max-width: 320px;            /* 画面幅に収まるよう制限 */
+    margin: 0 auto 1rem;
+    line-height: 1.5;
+    white-space: normal !important; /* 強制改行を許可 */
+    word-break: break-all;
+    text-align: center;
+  }
+
+  /* 5. スマホ用フルスクリーンメニュー */
   #navMenu.active {
     display: flex !important;
     position: fixed;
@@ -226,7 +243,7 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(10, 10, 10, 0.96);
+    background: rgba(10, 10, 10, 0.98);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -234,34 +251,69 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
   }
 
   #navMenu ul {
-    gap: 15px; /* メニュー間の隙間を狭く */
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
   }
 
   #navMenu a {
-    font-size: 1.2rem; /* 文字を少し小さく */
+    writing-mode: horizontal-tb;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    color: #fff;
     padding: 10px 0;
-    letter-spacing: 0.05em;
   }
 
-  /* 「部員専用」などのボタンをコンパクトに */
-  .nav-special {
-    font-size: 0.7rem !important;
-    padding: 4px 10px !important;
+  /* 6. その他のパーツをスリムに調整 */
+  .sns-flex-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
 
-  /* 5. 下の固定ボタンも少し小さく */
+  .sns-ticket {
+    width: 100%;
+    max-width: 340px;
+    height: 110px;
+  }
+
+  .process-wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .process-step {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  /* 下部の固定ボタン */
   .mobile-sticky-cta {
-    padding: 8px;
-  }
-  .mobile-sticky-cta a {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     padding: 10px;
-    font-size: 0.9rem;
+    background: rgba(10, 10, 10, 0.9);
+    z-index: 1000;
   }
 
-  /* その他要素の最適化 */
-  .sns-flex-container { gap: 20px; }
-  .sns-ticket { width: 100%; height: 110px; } /* チケットも少しスリムに */
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .mobile-sticky-cta a {
+    display: block;
+    background: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
 }
 footer { background: var(--bg-dark); color: #fff; text-align: center; padding: 60px 0 120px; }
 #backToTop { position: fixed; bottom: 100px; right: 20px; width: 45px; height: 45px; background: var(--primary-color); border: 1px solid var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; z-index: 999; color: #fff; }
@@ -271,4 +323,5 @@ footer { background: var(--bg-dark); color: #fff; text-align: center; padding: 6
 .prep-visual { width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; border: 1px solid #333; }
 
 .prep-board { text-align: center; color: var(--accent-color); padding: 15px 25px; border: 1px solid var(--accent-color); background: rgba(0, 0, 0, 0.7); transform: rotate(-2deg); }
+
 
