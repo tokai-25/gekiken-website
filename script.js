@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   updateCountdown();
 
- // --- 3. 役割紹介：詳細表示機能（スマホ時は手動、PC時は無限スクロール） ---
+ // --- 3. 役割紹介：詳細表示機能（PC：自動自転 / スマホ：手動スワイプ） ---
   const roleSectionSetup = () => {
     const roleTrack = document.getElementById('roleTrack');
     const roleDescBox = document.getElementById('roleDescription');
@@ -49,10 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const roleText = document.getElementById('roleText');
 
     if (roleTrack && roleDescBox) {
-      // PCの時だけ無限ループ用に複製する
+      // 【重要】PCの時だけ1回複製して、全く同じものを2つ並べる（2倍の長さ）
       if (window.innerWidth > 768) {
         const cloneItems = roleTrack.innerHTML;
-        roleTrack.innerHTML += cloneItems;
+        roleTrack.innerHTML += cloneItems; 
       }
 
       roleTrack.addEventListener('click', (e) => {
@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
             roleDescBox.style.transition = "opacity 0.4s ease";
             roleDescBox.style.opacity = "1";
             
-            // スマホの時、タップしたら説明文までスッと画面を誘導する
             if (window.innerWidth <= 768) {
               setTimeout(() => {
                 roleDescBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -214,4 +213,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
 
