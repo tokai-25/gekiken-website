@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   updateCountdown();
 
-  // --- 3. 役割紹介：詳細表示機能（クリック切り替え） ---
+ // --- 3. 役割紹介：詳細表示機能（スマホ時は手動、PC時は無限スクロール） ---
   const roleSectionSetup = () => {
     const roleTrack = document.getElementById('roleTrack');
     const roleDescBox = document.getElementById('roleDescription');
@@ -49,9 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const roleText = document.getElementById('roleText');
 
     if (roleTrack && roleDescBox) {
-      // 無限ループ用の複製
-      const cloneItems = roleTrack.innerHTML;
-      roleTrack.innerHTML += cloneItems;
+      // 【ポイント1】PCの時だけ無限ループ用に複製する
+      // スマホ(768px以下)では複製しないことで、スワイプ操作を分かりやすくする
+      if (window.innerWidth > 768) {
+        const cloneItems = roleTrack.innerHTML;
+        roleTrack.innerHTML += cloneItems;
+      }
 
       roleTrack.addEventListener('click', (e) => {
         const item = e.target.closest('.role-item');
@@ -67,6 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
             roleDescBox.style.display = 'block';
             roleDescBox.style.transition = "opacity 0.4s ease";
             roleDescBox.style.opacity = "1";
+            
+            // 【ポイント2】スマホの時、タップしたら説明文までスッと誘導する
+            if (window.innerWidth <= 768) {
+              // 少し時間を置いてからスクロール（箱が表示されるのを待つ）
+              setTimeout(() => {
+                roleDescBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              }, 100);
+            }
           }, 150);
         }
       });
@@ -203,5 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
       alert("パスワードが正しくありません。");
     }
   };
+
 
 });
