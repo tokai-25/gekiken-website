@@ -229,14 +229,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 60000);
 });
 
+/**
+ * 目的地（スクエアホール）へのルート案内を開く関数
+ * 実行すると新しいタブでGoogleマップが開きます
+ */
 function getRouteToSquareHall() {
-    // スクエアホールのPlace IDを指定
+    // 目的地情報
+    const destinationName = encodeURIComponent("東海大学 湘南キャンパス スクエアホール");
     const placeId = "ChIJ45GPAv2pGWARDMZYp0qKTwA";
-    const destinationName = "東海大学 湘南キャンパス スクエアホール";
-    
-    // 現在地(MY_LOCATION)から目的地へのルートURL
-    // スマホのGoogleマップアプリで最適に開くパラメータ
-    const mapUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destinationName)}&destination_place_id=${placeId}&travelmode=walking`;
-    
+
+    /**
+     * Google Maps Directions API URL
+     * origin: 指定なし（自動的に現在地になります）
+     * destination: スクエアホール
+     * travelmode: walking（徒歩）
+     */
+    const mapUrl = `https://www.google.com/maps/dir/?api=1&destination=${destinationName}&destination_place_id=${placeId}&travelmode=walking`;
+
+    // 新しいウィンドウ/タブで地図を開く
     window.open(mapUrl, '_blank');
 }
