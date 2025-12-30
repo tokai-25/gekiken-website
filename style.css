@@ -192,6 +192,51 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
    9. レスポンシブ (スマホ・タブレット用 最終完成版)
    ========================================================================== */
 @media (max-width: 768px) {
+
+   /* --- 役割紹介スライダーのスマホ最適化 --- */
+  .role-slider-container {
+    padding: 30px 0; 
+  }
+
+  .role-slider-track {
+    /* 自動回転を止めて、自分の指で動かせるようにする */
+    animation: none !important; 
+    overflow-x: auto; 
+    display: flex !important;
+    width: auto !important;
+    padding: 0 50px; /* 両端に余白を作って真ん中に来やすくする */
+    
+    /* 【重要】指を離した時にピタッと止まる設定 */
+    scroll-snap-type: x mandatory; 
+    /* スムーズなスクロール */
+    -webkit-overflow-scrolling: touch; 
+  }
+
+  /* スクロールバーを見えなくしてスッキリさせる */
+  .role-slider-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .role-item {
+    flex: 0 0 130px; 
+    /* 項目が画面の真ん中で止まるように指定 */
+    scroll-snap-align: center; 
+    margin: 0 10px;
+    transition: transform 0.3s;
+  }
+  
+  .role-item img {
+    width: 75px;
+    height: 75px;
+  }
+
+  /* 「左右に動かせるよ」というヒントを表示 */
+  .role-hint {
+    display: block !important;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+  }
   /* セクション全体の余白をコンパクトに */
   section { padding: 40px 5%; }
 
@@ -321,6 +366,7 @@ footer { background: var(--bg-dark); color: #fff; text-align: center; padding: 6
 .prep-visual { width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; border: 1px solid #333; }
 
 .prep-board { text-align: center; color: var(--accent-color); padding: 15px 25px; border: 1px solid var(--accent-color); background: rgba(0, 0, 0, 0.7); transform: rotate(-2deg); }
+
 
 
 
