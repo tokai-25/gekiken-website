@@ -623,3 +623,55 @@ footer { background: var(--bg-dark); color: #fff; text-align: center; padding: 6
     padding-bottom: 90px !important;
   }
 }
+
+/* --- 公演カウントダウンを強調する演出 --- */
+.hero-subtitle {
+    background: rgba(220, 53, 69, 0.9); /* 演劇らしい深みのある赤 */
+    color: #fff;                        /* 文字を白くして読みやすく */
+    padding: 10px 25px;
+    border-radius: 50px;
+    display: inline-block;
+    font-weight: 700;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: pulse 2s infinite;      /* 鼓動のようなアニメーション */
+}
+
+/* 注目を集めるためのふわふわした動き */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* カウントダウンの数字だけをさらに強調 */
+#countdown {
+    font-size: 1.4rem;
+    margin: 0 5px;
+    color: #fff;
+}
+
+/* --- スマホ表示（画面幅768px以下）のときだけの調整 --- */
+@media (max-width: 768px) {
+    /* トップ画面の「予約ボタン」などを横幅いっぱいにして押しやすくする */
+    .hero-cta {
+        display: block;
+        width: 100%; 
+        margin: 10px 0 !important; /* ボタン同士の上下に隙間を作る */
+        font-size: 1.1rem;
+        padding: 15px;
+        box-sizing: border-box; /* 画面からはみ出さないように計算 */
+    }
+    
+    /* 観劇のマナーやQ&Aの行間を広げて読みやすくする */
+    .faq-item {
+        line-height: 1.8; 
+        margin-bottom: 20px;
+    }
+
+    /* 2つのボタンが並んでいる場所の余白を調整 */
+    .hero-content div {
+        margin-left: 0 !important; 
+        padding: 0 20px; /* 画面端に少し余裕を持たせる */
+    }
+}
