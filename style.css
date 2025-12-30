@@ -561,65 +561,65 @@ footer { background: var(--bg-dark); color: #fff; text-align: center; padding: 6
 }
 
 /* ==========================================================================
-   12. UX/UI 最終改善（GPT評価改善パック）
+   12. UX/UI 最終改善（ダブルCTA & モバイル最適化）
    ========================================================================== */
 
-/* --- 1. ファーストビュー：予約への導線を強化 --- */
-#countdown {
-  font-size: 2.8rem;
-  font-weight: bold;
-  color: var(--accent-color);
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-  margin: 0 8px;
-  font-family: 'Noto Serif JP', serif;
-}
-
 @media (max-width: 768px) {
-  /* 1. ヒーローエリアの圧迫感を減らす */
-  .typing {
-    font-size: 1.25rem !important; /* さらに少し小さくして一行に収まりやすく */
-    margin-bottom: 0.5rem;
-  }
-  
-  #countdown {
-    font-size: 2.0rem; /* 2.8remからさらにダウン。でもゴールドなので目立ちます */
-  }
-
-  /* 2. ボタンを「シュッ」とさせる */
-  .hero-cta {
-    width: 80% !important; /* 90%から少し絞る */
-    padding: 0.8rem !important; /* 厚みを30%カット */
-    font-size: 0.95rem !important;
-    letter-spacing: 0.1em;
-  }
-
-  /* 3. 役割紹介の「円」をコンパクトに並べる */
-  .role-item {
-    flex: 0 0 100px !important; /* 140px → 100px */
-  }
-  .role-item img {
-    width: 60px; /* 80px → 60px */
-    height: 60px;
-  }
-  .role-item span {
-    font-size: 0.75rem; /* 文字もバランスを合わせる */
-  }
-
-  /* 4. 余白の調整（セクション間の隙間を詰める） */
-  section {
-    padding: 30px 6% !important; /* 80pxはスマホでは広すぎます */
-  }
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  /* 5. 下部固定予約ボタンの主張を抑える */
+  /* 既存の1つボタン設定を2カラムのグリッドに上書き */
   .mobile-sticky-cta {
-    padding: 10px 15px 20px;
+    display: grid !important;
+    grid-template-columns: 1fr 1.5fr; /* 会場(1) : 予約(1.5) の比率で予約を強調 */
+    gap: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 12px 15px 25px !important; /* iPhoneのバーを考慮した余白 */
+    background: linear-gradient(to top, rgba(10, 10, 10, 1) 85%, rgba(10, 10, 10, 0));
+    z-index: 2000;
   }
-  .mobile-sticky-cta a {
-    padding: 10px; /* 少し細く */
-    font-size: 0.95rem;
+
+  /* ボタン共通の高さと文字サイズ */
+  .mobile-sticky-cta a, 
+  .mobile-sticky-cta button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.85rem !important;
+    border: none;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+
+  /* 左側：会場ルート（青色） */
+  .sticky-btn-map {
+    background: #4285F4 !important; /* Googleマップカラー */
+    padding: 0;
+  }
+  .sticky-btn-map i {
+    margin-right: 5px;
+    font-size: 0.8rem;
+  }
+
+  /* 右側：予約ボタン（エンジ色 ＋ 鼓動アニメーション） */
+  .sticky-btn-reserve {
+    background: var(--primary-color) !important;
+    animation: pulse-sticky 2s infinite;
+  }
+
+  /* 予約ボタンが目立つように少しだけ脈動させる */
+  @keyframes pulse-sticky {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+  }
+
+  /* コンテンツがボタンに隠れないようにbodyの底上げ */
+  body {
+    padding-bottom: 90px !important;
   }
 }
