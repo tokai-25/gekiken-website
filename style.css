@@ -1,0 +1,625 @@
+/* ==========================================================================
+   1. 基本設定 & 共通変数
+   ========================================================================== */
+:root {
+  --primary-color: #8b0000;    /* エンジ */
+  --accent-color: #d4af37;     /* ゴールド */
+  --bg-dark: #0a0a0a;
+  --bg-light: #fcfcfc;
+  --bg-neutral: #f4f4f4;
+  --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { 
+  font-family: 'Noto Sans JP', sans-serif; 
+  line-height: 1.8; color: #333; background-color: var(--bg-light); 
+  overflow-x: hidden; 
+  -webkit-tap-highlight-color: transparent; 
+}
+h1, h2, h3 { font-family: 'Noto Serif JP', serif; font-weight: 700; }
+section { padding: 80px 10%; }
+ul { list-style: none; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+/* 共通パーツ */
+.card { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.button { display: inline-block; padding: 0.9rem 2.5rem; background: var(--primary-color); color: #fff; border-radius: 4px; font-weight: 600; cursor: pointer; transition: 0.3s; border: none; text-align: center; }
+.button:hover { opacity: 0.8; transform: translateY(-2px); }
+
+.fade-in { opacity: 0; transform: translateY(30px); transition: 1s cubic-bezier(0.22, 1, 0.36, 1); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+h2 { text-align: center; font-size: 2rem; margin-bottom: 4rem; position: relative; padding-bottom: 15px; }
+h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background: var(--primary-color); }
+
+/* ==========================================================================
+   2. ローディング & ヘッダー
+   ========================================================================== */
+#loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; display: flex; pointer-events: none; }
+.curtain { width: 50%; height: 100%; background: var(--primary-color); transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1); position: relative; }
+body.loaded .curtain.left { transform: translateX(-100%); }
+body.loaded .curtain.right { transform: translateX(100%); }
+.loader-logo { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--accent-color); font-size: 1.5rem; z-index: 10000; transition: opacity 0.5s; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); white-space: nowrap; }
+body.loaded .loader-logo { opacity: 0; }
+
+header { position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 5%; background: rgba(10, 10, 10, 0.95); color: #fff; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+.logo { font-size: 1.2rem; font-weight: bold; color: var(--accent-color); font-family: 'Noto Serif JP', serif; }
+nav ul { display: flex; align-items: center; gap: 1.2rem; }
+.nav-special { background: var(--primary-color); padding: 5px 12px; border-radius: 20px; border: 1px solid var(--accent-color); font-size: 0.75rem !important; }
+
+.hamburger { display: none; background: none; border: none; cursor: pointer; z-index: 1600; padding: 10px; }
+.hamburger span { display: block; width: 25px; height: 2px; background: #fff; margin: 6px 0; transition: 0.3s; }
+
+/* ==========================================================================
+   3. ヒーロー & スライダー & 役割紹介
+   ========================================================================== */
+.hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff; text-align: center; }
+.hero-slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
+.slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
+.slide.active { opacity: 1; }
+.hero::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: -1; }
+.hero-content { z-index: 1; padding: 0 20px; }
+.typing { font-size: 2.5rem; margin-bottom: 1rem; min-height: 1.2em; word-break: keep-all; }
+
+/* 役割紹介：コンテナ設定 */
+.role-slider-container { overflow: hidden; padding: 60px 0; background: #111; color: #fff; text-align: center; }
+
+/* 役割紹介：トラック（PC自転設定） */
+.role-slider-track { 
+  display: flex; 
+  width: max-content; 
+}
+
+/* PC（画面幅769px以上）のみ自動自転を有効化 */
+@media (min-width: 769px) {
+  .role-slider-track {
+    animation: scroll-infinity 40s linear infinite; /* 等速（linear）で自転 */
+  }
+  .role-slider-track:hover {
+    animation-play-state: paused; /* マウスホバーで停止 */
+  }
+}
+
+.role-item { flex: 0 0 150px; text-align: center; cursor: pointer; padding: 15px; transition: 0.3s; }
+.role-item img { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--accent-color); object-fit: cover; margin-bottom: 10px; background: #222; }
+.role-item span { display: block; font-size: 0.9rem; font-weight: bold; }
+
+.role-description-box { max-width: 600px; margin: 30px auto 0; padding: 30px; background: rgba(255,255,255,0.05); border: 1px solid var(--accent-color); border-radius: 8px; display: none; }
+
+/* 【自転のロジック】要素を2倍に複製しているため、半分（-50%）で戻すと継ぎ目が消える */
+@keyframes scroll-infinity { 
+  0% { transform: translateX(0); } 
+  100% { transform: translateX(-50%); } 
+}
+
+/* ==========================================================================
+   4. SNS (チケット) & ブログ (ノート)
+   ========================================================================= */
+.sns-flex-container { display: flex; flex-direction: row; justify-content: center; align-items: flex-start; gap: 40px; margin: 40px auto; max-width: 1100px; padding: 0 5%; }
+.sns-ticket { display: flex; width: 360px; height: 130px; background: #fff; border-radius: 8px; overflow: hidden; position: relative; box-shadow: 0 8px 20px rgba(0,0,0,0.1); cursor: pointer; text-decoration: none; }
+.sns-ticket:hover { transform: translateY(-5px) rotate(-1deg); }
+.sns-ticket::before, .sns-ticket::after { content: ""; position: absolute; left: 88px; width: 20px; height: 20px; background: var(--bg-light); border-radius: 50%; z-index: 2; }
+.sns-ticket::before { top: -10px; }
+.sns-ticket::after { bottom: -10px; }
+.ticket-stub { width: 100px; background: var(--primary-color); color: #fff; display: flex; align-items: center; justify-content: center; border-right: 2px dashed rgba(255,255,255,0.3); }
+.stub-text { writing-mode: vertical-rl; transform: rotate(180deg); letter-spacing: 2px; font-size: 0.7rem; opacity: 0.8; }
+.ticket-main { flex-grow: 1; padding: 15px; display: flex; flex-direction: column; justify-content: center; }
+.ticket-header { font-weight: bold; color: var(--primary-color); font-size: 1rem; border-bottom: 1px solid #eee; margin-bottom: 5px; }
+
+.blog-notebook { display: block; background: #fffef0; padding: 30px 30px 30px 50px; border-left: 15px solid #2c3e50; box-shadow: 8px 8px 20px rgba(0,0,0,0.1); position: relative; border-radius: 4px 10px 10px 4px; max-width: 400px; width: 100%; }
+.notebook-spiral { position: absolute; left: -10px; top: 15px; height: 85%; width: 20px; background-image: radial-gradient(#dcdcdc 35%, transparent 35%); background-size: 100% 20px; }
+
+/* ==========================================================================
+   5. アクセスガイド & Googleマップボタン
+   ========================================================================== */
+.map-container { width: 100%; height: 400px; border-radius: 12px; overflow: hidden; margin-bottom: 20px; }
+.map-container iframe { width: 100%; height: 100%; border: none; }
+
+.map-action { text-align: center; margin-bottom: 40px; }
+.map-btn { 
+  background-color: #4285F4 !important; color: #fff !important; 
+  width: 100%; max-width: 350px; border-radius: 50px; 
+  box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3); font-size: 0.95rem;
+}
+.map-note { font-size: 0.75rem; color: #888; margin-top: 8px; }
+
+.guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.guide-item img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee; }
+.guide-item p { font-size: 0.9rem; line-height: 1.6; }
+
+/* ==========================================================================
+   6. 制作ステップ & 部員紹介
+   ========================================================================== */
+.process-wrapper { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-top: 40px; }
+.process-step { 
+  flex: 1; background: #fff; padding: 30px 15px; border-radius: 12px; text-align: center; 
+  position: relative; box-shadow: 0 5px 20px rgba(0,0,0,0.05); height: 220px;
+  display: flex; flex-direction: column; justify-content: center; 
+}
+.step-num { 
+  font-size: 2.5rem; color: var(--primary-color); opacity: 0.1; 
+  position: absolute; top: 5px; left: 50%; transform: translateX(-50%); font-weight: bold;
+}
+
+/* 部員紹介カード */
+.member-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+.member-card { 
+  background: #fff; padding: 30px; border-radius: 15px; border-bottom: 4px solid var(--accent-color); 
+  width: 280px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; 
+}
+.member-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+.member-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+.member-role { font-size: 0.8rem; color: var(--primary-color); font-weight: bold; display: block; margin-bottom: 5px; }
+.member-comment { font-size: 0.85rem; color: #666; margin-top: 10px; font-style: italic; }
+
+/* ==========================================================================
+   7. 公演アーカイブ & 舞台裏
+   ========================================================================== */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+.gallery-item { position: relative; overflow: hidden; border-radius: 8px; aspect-ratio: 1 / 1.414; background: #222; display: block; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+
+.gallery-overlay { 
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+  background: rgba(139, 0, 0, 0.9); display: flex; flex-direction: column;
+  align-items: center; justify-content: center; opacity: 0; transition: 0.4s; padding: 20px; text-align: center;
+}
+/* --- この部分を追加 --- */
+.play-title { 
+  color: #1a1a1a !important; /* 文字を白にする */
+  font-size: 0.9rem; 
+  line-height: 1.6; 
+  font-weight: bold;
+}
+/* -------------------- */
+
+.gallery-overlay::after { 
+  content: "VIEW DETAILS →"; 
+  display: block; 
+  font-size: 0.65rem; 
+  color: #ffffff; /* ここも var(--accent-color) から #ffffff に変えると統一感が出ます */
+  border: 1px solid #ffffff; /* 枠も白にする場合 */
+  padding: 4px 12px; 
+  margin-top: 15px; 
+  font-weight: bold; 
+}
+.gallery-overlay::after { content: "VIEW DETAILS →"; display: block; font-size: 0.65rem; color: var(--accent-color); border: 1px solid var(--accent-color); padding: 4px 12px; margin-top: 15px; font-weight: bold; }
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-item:hover img { transform: scale(1.1); }
+
+.backstage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }
+.backstage-photo { overflow: hidden; border-radius: 10px; height: 220px; }
+.backstage-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+.backstage-photo:hover img { filter: grayscale(0%); transform: scale(1.05); }
+
+/* ==========================================================================
+   8. 団体紹介 (ABOUT) - 職人スタイル
+   ========================================================================== */
+.about-premium { background-color: var(--bg-neutral); display: flex; justify-content: center; }
+.about-card { background: #fff; padding: 60px 40px; border-radius: 4px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); position: relative; max-width: 900px; width: 100%; border: 1px solid rgba(212, 175, 55, 0.3); }
+.card-deco-corner { position: absolute; width: 30px; height: 30px; border: 2px solid var(--accent-color); }
+.top-left { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+.bottom-right { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+.about-tag { display: block; text-align: center; color: var(--accent-color); font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 10px; }
+
+.craft-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
+.craft-item { padding: 25px 15px; background: var(--bg-light); border-radius: 8px; text-align: center; transition: 0.3s; }
+.craft-item:hover { background: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transform: translateY(-5px); }
+.craft-icon { font-size: 2rem; display: block; margin-bottom: 10px; }
+
+/* ==========================================================================
+   9. レスポンシブ (スマホ・タブレット用 最終完成版)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* --- 1. 役割紹介スライダーの完全手動化 --- */
+  .role-slider-container {
+    padding: 30px 0;
+    overflow: visible !important; /* はみ出しを許可してスクロールを有効化 */
+  }
+
+  .role-slider-track {
+    animation: none !important;      /* 自動回転を完全に停止 */
+    display: flex !important;
+    width: auto !important;          /* 横幅を固定せず中身に合わせる */
+    overflow-x: scroll !important;   /* 強制的に横スクロールを有効化 */
+    overflow-y: hidden;
+    padding: 0 40px;                 /* 左右の余白 */
+    gap: 10px;
+    
+    /* ピタッと止まる設定 */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* 指に吸い付く操作感 */
+  }
+
+  /* スクロールバーを隠す */
+  .role-slider-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .role-item {
+    flex: 0 0 140px !important;      /* アイコンが潰れないように固定 */
+    scroll-snap-align: center;       /* 中央で止まる */
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .role-item img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .role-hint {
+    display: block !important;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  /* --- 2. ヘッダー・ナビの調整 --- */
+  header {
+    height: 55px;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    max-width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #navMenu { display: none; }
+  #navMenu.active {
+    display: flex !important;
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(10, 10, 10, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+
+  #navMenu ul { flex-direction: column; gap: 12px; }
+  #navMenu a { font-size: 1.1rem; color: #fff; padding: 10px 0; display: block; }
+
+  .nav-special {
+    background: var(--primary-color) !important;
+    padding: 8px 20px !important;
+    border-radius: 20px;
+    border: 1px solid var(--accent-color) !important;
+    font-size: 0.85rem !important;
+    margin-top: 10px;
+  }
+
+  .hamburger { display: block !important; position: relative; z-index: 2100; }
+
+  /* --- 3. その他レイアウト調整 --- */
+  section { padding: 40px 5%; }
+  
+  .typing {
+    font-size: 1.1rem !important;
+    width: 90%;
+    margin: 0 auto 1rem;
+    white-space: nowrap !important;
+    overflow: hidden;
+    letter-spacing: -0.03em;
+  }
+
+  .sns-flex-container { flex-direction: column; align-items: center; gap: 20px; }
+  .sns-ticket { width: 100%; max-width: 320px; height: 110px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .process-wrapper { flex-direction: column; gap: 15px; }
+
+  .mobile-sticky-cta {
+    position: fixed;
+    bottom: 0; left: 0; width: 100%; padding: 10px;
+    background: rgba(10, 10, 10, 0.95);
+    z-index: 1000;
+  }
+  .mobile-sticky-cta a {
+    display: block; background: var(--primary-color); color: #fff;
+    text-align: center; padding: 12px; border-radius: 5px;
+    font-weight: bold;
+  }
+}
+footer { background: var(--bg-dark); color: #fff; text-align: center; padding: 60px 0 120px; }
+#backToTop { position: fixed; bottom: 100px; right: 20px; width: 45px; height: 45px; background: var(--primary-color); border: 1px solid var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; z-index: 999; color: #fff; }
+#backToTop.show { opacity: 1; }
+
+/* 準備中表示 */
+.prep-visual { width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; border: 1px solid #333; }
+
+.prep-board { text-align: center; color: var(--accent-color); padding: 15px 25px; border: 1px solid var(--accent-color); background: rgba(0, 0, 0, 0.7); transform: rotate(-2deg); }
+
+/* ==========================================================================
+   10. 機能強化：スライダー動線 ＆ カレンダーボタン
+   ========================================================================== */
+
+/* --- 役割紹介スライダー：ホバーエフェクト --- */
+.role-item {
+  transition: var(--transition); /* 既存の 0.4s cubic-bezier を使用 */
+}
+
+/* PC：マウスを乗せた時にアイコンを浮かせ、色を明るくする */
+@media (min-width: 769px) {
+  .role-item:hover {
+    transform: translateY(-10px);
+    filter: brightness(1.2);
+  }
+  .role-item:hover img {
+    border-color: var(--primary-color); /* ホバー時にエンジ色に変化 */
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+  }
+}
+
+/* --- Googleカレンダー追加ボタンのデザイン --- */
+.calendar-add-group {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px dashed #eee;
+  text-align: center;
+}
+
+.calendar-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.button-calendar {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #666;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.button-calendar:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* 予約ボタンなどと並んだ時の微調整 */
+.highlight .button.hero-cta {
+  margin-bottom: 10px;
+}
+
+.calendar-section {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+/* 予約開始（強調） */
+.reservation-reminder-box {
+  margin-bottom: 25px;
+}
+.calendar-label {
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.button-calendar-primary {
+  display: inline-block;
+  padding: 10px 24px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 50px; /* 丸みをつけて特別感を出す */
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* 公演当日（控えめ） */
+.calendar-sub-label {
+  font-size: 0.75rem;
+  color: #999;
+  margin-bottom: 10px;
+}
+.calendar-link-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.cal-link {
+  font-size: 0.85rem;
+  color: #555;
+  text-decoration: underline; /* リンクであることを示す */
+  text-underline-offset: 4px;
+  transition: 0.3s;
+}
+.cal-link:hover {
+  color: var(--primary-color);
+}
+/* --- 公演カレンダーの最終調整 --- */
+.calendar-section {
+  margin-top: 30px;
+  border-top: 1px dashed #444;
+  padding-top: 25px;
+}
+
+.button-calendar-primary {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--accent-color); /* 劇団カラーのエンジ */
+  color: #fff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+}
+
+.button-calendar-primary:hover {
+  background: #a00000;
+  transform: translateY(-2px);
+}
+
+.calendar-link-group {
+  margin-top: 15px;
+}
+
+.cal-link {
+  font-size: 0.85rem;
+  color: #bbb;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: 0.3s;
+}
+
+.cal-link:hover {
+  color: var(--accent-color);
+}
+
+/* ==========================================================================
+   11. 最終ブラッシュアップ：視線誘導 & ナビゲーション
+   ========================================================================== */
+
+/* --- 1. 舞台裏写真のキャプション（視線誘導） --- */
+.backstage-photo {
+  position: relative;
+  overflow: hidden;
+  height: 250px; /* 高さを少し調整して文字を読みやすく */
+}
+
+.backstage-photo img {
+  filter: grayscale(100%);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s;
+}
+
+.photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 10px;
+  background: rgba(0, 0, 0, 0.7); /* 文字を読みやすくする黒背景 */
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-align: center;
+  transform: translateY(100%); /* 最初は隠しておく */
+  transition: transform 0.4s ease-out;
+  pointer-events: none; /* キャプションがマウスを邪魔しないように */
+}
+
+.backstage-photo:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+.backstage-photo:hover .photo-caption {
+  transform: translateY(0); /* ホバーでスッと出てくる */
+}
+
+/* --- 2. メニューの現在地強調（アクティブ表示） --- */
+#navMenu ul li a.active {
+  color: var(--accent-color) !important;
+  font-weight: bold;
+  position: relative;
+}
+
+#navMenu ul li a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+/* スマホ用メニューのアクティブ表示調整 */
+@media (max-width: 768px) {
+  #navMenu.active a.active {
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 2px;
+  }
+  #navMenu.active a.active::after {
+    display: none; /* 二重線を防止 */
+  }
+}
+
+/* ==========================================================================
+   12. UX/UI 最終改善（GPT評価改善パック）
+   ========================================================================== */
+
+/* --- 1. ファーストビュー：予約への導線を強化 --- */
+#countdown {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  margin: 0 8px;
+  font-family: 'Noto Serif JP', serif;
+}
+
+@media (max-width: 768px) {
+  /* 1. ヒーローエリアの圧迫感を減らす */
+  .typing {
+    font-size: 1.25rem !important; /* さらに少し小さくして一行に収まりやすく */
+    margin-bottom: 0.5rem;
+  }
+  
+  #countdown {
+    font-size: 2.0rem; /* 2.8remからさらにダウン。でもゴールドなので目立ちます */
+  }
+
+  /* 2. ボタンを「シュッ」とさせる */
+  .hero-cta {
+    width: 80% !important; /* 90%から少し絞る */
+    padding: 0.8rem !important; /* 厚みを30%カット */
+    font-size: 0.95rem !important;
+    letter-spacing: 0.1em;
+  }
+
+  /* 3. 役割紹介の「円」をコンパクトに並べる */
+  .role-item {
+    flex: 0 0 100px !important; /* 140px → 100px */
+  }
+  .role-item img {
+    width: 60px; /* 80px → 60px */
+    height: 60px;
+  }
+  .role-item span {
+    font-size: 0.75rem; /* 文字もバランスを合わせる */
+  }
+
+  /* 4. 余白の調整（セクション間の隙間を詰める） */
+  section {
+    padding: 30px 6% !important; /* 80pxはスマホでは広すぎます */
+  }
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* 5. 下部固定予約ボタンの主張を抑える */
+  .mobile-sticky-cta {
+    padding: 10px 15px 20px;
+  }
+  .mobile-sticky-cta a {
+    padding: 10px; /* 少し細く */
+    font-size: 0.95rem;
+  }
+}

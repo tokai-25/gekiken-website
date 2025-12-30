@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>部員・ご家族専用アーカイブ | 東海大学演劇研究会</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" href="image/image-icon.webp">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 専用ページの追加スタイル */
+    .members-hero {
+      background: var(--bg-dark);
+      color: var(--accent-color);
+      padding: 60px 10%;
+      text-align: center;
+      border-bottom: 3px solid var(--accent-color);
+    }
+    .cast-staff-list {
+      margin: 20px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .member-group {
+      background: #fdfdfd;
+      padding: 15px;
+      border-left: 4px solid var(--primary-color);
+      border-radius: 4px;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .video-container img {
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.7;
+    }
+    .play-overlay {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-size: 4rem; color: #fff; text-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-s { padding: 8px 15px; font-size: 0.85rem; border-radius: 4px; color: #fff; }
+    .bg-red { background: #cc0000; }
+    .bg-gray { background: #555; }
+    .bg-gold { background: #b8860b; }
+  </style>
+</head>
+<body class="loaded"> <header>
+    <div class="logo">演劇研究会：限定公開アーカイブ</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">公式サイトへ戻る</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="members-hero">
+    <h1>部員・ご家族専用ページ</h1>
+    <p>公演の記録と部内資料を掲載しています。外部への公開はご遠慮ください。</p>
+  </section>
+
+  <section class="fade-in visible">
+    <h2>最新の公演アーカイブ</h2>
+    
+    <div class="card">
+      <div class="video-container">
+        <a href="https://youtu.be/QsBV6MJkpKkD" target="_blank">
+          <img src="https://youtu.be/QsBV6MJkpKk/maxresdefault.jpg" alt="公演サムネイル">
+          <div class="play-overlay">▶</div>
+        </a>
+      </div>
+
+      <h3>第192回 建学祭公演「作品名が入ります」</h3>
+      <p style="margin-bottom: 15px; color: #666;">上演日：2025年11月1日〜3日</p>
+
+      <div class="btn-group" style="margin-bottom: 30px;">
+        <a href="https://youtu.be/QsBV6MJkpKk" target="_blank" class="btn-s bg-red">▶ 動画をフル視聴（YouTube）</a>
+        <a href="pdf/pamphlet.pdf" target="_blank" class="btn-s bg-gold">📖 パンフレットを表示(PDF)</a>
+        <a href="pdf/script.pdf" target="_blank" class="btn-s bg-gray">📄 脚本をダウンロード</a>
+      </div>
+
+      <hr>
+
+      <h4 style="margin: 20px 0 10px;">役者・スタッフ一覧</h4>
+      <div class="cast-staff-list">
+        <div class="member-group">
+          <strong>【役者】</strong><br>
+          布広里花、笛田大介、杉谷波音、中島茉莉、本間晟大、上野凱志
+        </div>
+        <div class="member-group">
+          <strong>【スタッフチーフ】</strong><br>
+          演出：宮崎真央<br>
+          脚本：宮道さや<br>
+          舞台監督：黒木公輔<br>
+          照明チーフ：大澤修也<br>
+          音響チーフ：福山佳也<br>
+          装置チーフ：渡辺幸輝<br>
+          衣装メイクチーフ：矢野瑞彩
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-in visible">
+    <div class="card bg-light" style="border: 1px dashed #ccc;">
+      <h4>⚠️ ご視聴に関するお願い</h4>
+      <ul style="font-size: 0.9rem; padding-left: 20px; line-height: 1.6;">
+        <li>動画はYouTubeの「限定公開」です。URLをSNS等で共有しないでください。</li>
+        <li>パンフレットや脚本の著作権は当研究会に帰属します。転載はご遠慮ください。</li>
+        <li>ご家族以外へのパスワードの譲渡は禁止しております。</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 東海大学演劇研究会</p>
+  </footer>
+
+</body>
+</html>

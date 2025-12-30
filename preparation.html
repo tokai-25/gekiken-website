@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PKPJ6TJ93R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PKPJ6TJ93R');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ただいま準備中 | 東海大学クラブ連合会演劇研究会</title>
+
+  <link rel="icon" href="image/image-icon.webp">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Noto+Sans+JP:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="preparation.css">
+</head>
+<body>
+
+  <div class="maintenance-container">
+    <div class="curtain-bg"></div>
+    
+    <div class="content">
+      <div class="status-badge">COMING SOON</div>
+      <h1>ただいま、公開準備中。</h1>
+      <p class="message">
+        東海大学クラブ連合会演劇研究会の特設サイトは、<br>
+        現在、舞台設営（アップデート）の真っ最中です。
+      </p>
+
+      <div class="navigation-links">
+        <a href="index.html" class="back-button" id="backBtn">
+          <span class="arrow">←</span> 前のページへ戻る
+        </a>
+      </div>
+
+      <div class="back-links">
+        <p>最新情報は公式SNSをご確認ください</p>
+        <div class="sns-icons">
+          <a href="https://www.twitter.com/tokaigekiken?s=21&t=bX3nzLGjxI4subUpz7Is8Q" target="_blank" class="sns-link">X (Twitter)</a>
+          <a href="https://www.instagram.com/tokai.gekiken?igsh=MWt6anozNHg1cmRicQ==" target="_blank" class="sns-link">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 直前のページに戻るための制御
+    document.getElementById('backBtn').addEventListener('click', function(e) {
+      if (document.referrer && document.referrer.includes(window.location.hostname)) {
+        e.preventDefault();
+        history.back();
+      }
+    });
+  </script>
+</body>
+
+</html>
