@@ -63,15 +63,36 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
 .hero-content { z-index: 1; padding: 0 20px; }
 .typing { font-size: 2.5rem; margin-bottom: 1rem; min-height: 1.2em; word-break: keep-all; }
 
+/* 役割紹介：コンテナ設定 */
 .role-slider-container { overflow: hidden; padding: 60px 0; background: #111; color: #fff; text-align: center; }
-.role-slider-track { display: flex; width: max-content; animation: scroll-infinity 40s linear infinite; }
-.role-slider-track:hover { animation-play-state: paused; }
+
+/* 役割紹介：トラック（PC自転設定） */
+.role-slider-track { 
+  display: flex; 
+  width: max-content; 
+}
+
+/* PC（画面幅769px以上）のみ自動自転を有効化 */
+@media (min-width: 769px) {
+  .role-slider-track {
+    animation: scroll-infinity 40s linear infinite; /* 等速（linear）で自転 */
+  }
+  .role-slider-track:hover {
+    animation-play-state: paused; /* マウスホバーで停止 */
+  }
+}
+
 .role-item { flex: 0 0 150px; text-align: center; cursor: pointer; padding: 15px; transition: 0.3s; }
 .role-item img { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--accent-color); object-fit: cover; margin-bottom: 10px; background: #222; }
 .role-item span { display: block; font-size: 0.9rem; font-weight: bold; }
 
 .role-description-box { max-width: 600px; margin: 30px auto 0; padding: 30px; background: rgba(255,255,255,0.05); border: 1px solid var(--accent-color); border-radius: 8px; display: none; }
-@keyframes scroll-infinity { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* 【自転のロジック】要素を2倍に複製しているため、半分（-50%）で戻すと継ぎ目が消える */
+@keyframes scroll-infinity { 
+  0% { transform: translateX(0); } 
+  100% { transform: translateX(-50%); } 
+}
 
 /* ==========================================================================
    4. SNS (チケット) & ブログ (ノート)
@@ -317,6 +338,7 @@ footer { background: var(--bg-dark); color: #fff; text-align: center; padding: 6
 .prep-visual { width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; border: 1px solid #333; }
 
 .prep-board { text-align: center; color: var(--accent-color); padding: 15px 25px; border: 1px solid var(--accent-color); background: rgba(0, 0, 0, 0.7); transform: rotate(-2deg); }
+
 
 
 
