@@ -189,13 +189,7 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
 .craft-icon { font-size: 2rem; display: block; margin-bottom: 10px; }
 
 /* ==========================================================================
-   9. レスポンシブ & フッター
-   ========================================================================== */
-/* ==========================================================================
-   9. レスポンシブ (スマホ・タブレット用完成版)
-   ========================================================================== */
-/* ==========================================================================
-   9. レスポンシブ (スマホ・タブレット用 最終完成版)
+   9. レスポンシブ (最終完成版：メニュー開閉・文字切れ修正済み)
    ========================================================================== */
 @media (max-width: 768px) {
   /* 全体の余白調整 */
@@ -212,7 +206,7 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
     white-space: nowrap;
   }
 
-  /* 2. ハンバーガーボタン */
+  /* 2. ハンバーガーボタン（三本線） */
   .hamburger {
     display: block;
     position: relative;
@@ -224,18 +218,26 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
     margin: 5px 0;
   }
 
-  /* 3. メインメッセージ（文字切れ・改行問題の解消） */
+  /* 3. メインメッセージ（きらめきを、永遠の記憶に。） */
   .typing {
-    font-size: 1.1rem !important; /* 1行に収まるサイズ */
+    font-size: 1.1rem !important; 
     width: 100%;
     margin: 0 auto 1rem;
-    white-space: nowrap !important; /* 絶対に途中で改行させない */
+    white-space: nowrap !important; /* 絶対に改行させない */
     overflow: hidden;
     text-align: center;
-    letter-spacing: -0.03em; /* わずかに詰めて収まりを改善 */
+    letter-spacing: -0.03em;
   }
 
-  /* 4. スマホメニュー（特設サイトの見切れ防止） */
+  /* 4. スマホ用ナビゲーション */
+  nav { display: none; } /* PC用の横並びナビを消す */
+
+  /* メニューの初期状態：三本線を押す前は「完全に隠す」 */
+  #navMenu {
+    display: none; 
+  }
+
+  /* メニューが開いた状態：.active が付いた時だけ表示 */
   #navMenu.active {
     display: flex !important;
     position: fixed;
@@ -248,7 +250,7 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
     justify-content: center;
     align-items: center;
     z-index: 2000;
-    padding: 0 10%; /* 左右にマージンを確保 */
+    padding: 0 10%;
   }
 
   #navMenu ul {
@@ -261,23 +263,22 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
 
   #navMenu a {
     writing-mode: horizontal-tb;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: #fff;
-    padding: 8px 0;
+    padding: 10px 0;
     display: block;
   }
 
   /* 特設サイト（限定公開）ボタンの最適化 */
   .nav-special {
     background: var(--primary-color) !important;
-    padding: 6px 15px !important;
+    padding: 8px 20px !important;
     border-radius: 20px;
     border: 1px solid var(--accent-color) !important;
-    font-size: 0.8rem !important;
+    font-size: 0.85rem !important;
     margin-top: 10px;
-    display: inline-block !important; /* 幅を文字に合わせる */
+    display: inline-block !important;
     width: auto !important;
-    max-width: 90%; /* 画面からはみ出さない */
   }
 
   /* 5. その他のパーツ調整 */
@@ -315,8 +316,11 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
     padding: 10px;
     border-radius: 5px;
     font-size: 0.85rem;
+    text-align: center;
+    color: #fff;
   }
 }
+
 footer { background: var(--bg-dark); color: #fff; text-align: center; padding: 60px 0 120px; }
 #backToTop { position: fixed; bottom: 100px; right: 20px; width: 45px; height: 45px; background: var(--primary-color); border: 1px solid var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; z-index: 999; color: #fff; }
 #backToTop.show { opacity: 1; }
@@ -325,6 +329,7 @@ footer { background: var(--bg-dark); color: #fff; text-align: center; padding: 6
 .prep-visual { width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; border: 1px solid #333; }
 
 .prep-board { text-align: center; color: var(--accent-color); padding: 15px 25px; border: 1px solid var(--accent-color); background: rgba(0, 0, 0, 0.7); transform: rotate(-2deg); }
+
 
 
 
