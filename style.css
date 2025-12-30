@@ -192,55 +192,52 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
    9. レスポンシブ (スマホ・タブレット用 最終完成版)
    ========================================================================== */
 @media (max-width: 768px) {
-
-   /* --- 役割紹介スライダーのスマホ最適化 --- */
+  /* --- 1. 役割紹介スライダーの完全手動化 --- */
   .role-slider-container {
-    padding: 30px 0; 
+    padding: 30px 0;
+    overflow: visible !important; /* はみ出しを許可してスクロールを有効化 */
   }
 
   .role-slider-track {
-    /* 自動回転を止めて、自分の指で動かせるようにする */
-    animation: none !important; 
-    overflow-x: auto; 
+    animation: none !important;      /* 自動回転を完全に停止 */
     display: flex !important;
-    width: auto !important;
-    padding: 0 50px; /* 両端に余白を作って真ん中に来やすくする */
+    width: auto !important;          /* 横幅を固定せず中身に合わせる */
+    overflow-x: scroll !important;   /* 強制的に横スクロールを有効化 */
+    overflow-y: hidden;
+    padding: 0 40px;                 /* 左右の余白 */
+    gap: 10px;
     
-    /* 【重要】指を離した時にピタッと止まる設定 */
-    scroll-snap-type: x mandatory; 
-    /* スムーズなスクロール */
-    -webkit-overflow-scrolling: touch; 
+    /* ピタッと止まる設定 */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* 指に吸い付く操作感 */
   }
 
-  /* スクロールバーを見えなくしてスッキリさせる */
+  /* スクロールバーを隠す */
   .role-slider-track::-webkit-scrollbar {
     display: none;
   }
 
   .role-item {
-    flex: 0 0 130px; 
-    /* 項目が画面の真ん中で止まるように指定 */
-    scroll-snap-align: center; 
-    margin: 0 10px;
-    transition: transform 0.3s;
-  }
-  
-  .role-item img {
-    width: 75px;
-    height: 75px;
+    flex: 0 0 140px !important;      /* アイコンが潰れないように固定 */
+    scroll-snap-align: center;       /* 中央で止まる */
+    margin: 0;
+    cursor: pointer;
   }
 
-  /* 「左右に動かせるよ」というヒントを表示 */
+  .role-item img {
+    width: 80px;
+    height: 80px;
+  }
+
   .role-hint {
     display: block !important;
     font-size: 0.8rem;
     color: var(--accent-color);
     margin-bottom: 15px;
+    text-align: center;
   }
-  /* セクション全体の余白をコンパクトに */
-  section { padding: 40px 5%; }
 
-  /* 1. ヘッダー：三本線とロゴを両端に配置 */
+  /* --- 2. ヘッダー・ナビの調整 --- */
   header {
     height: 55px;
     padding: 0 15px;
@@ -257,20 +254,11 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
     text-overflow: ellipsis;
   }
 
-  /* 2. ナビゲーションの制御（ここが重要） */
-  /* 最初は隠しておく */
-  #navMenu {
-    display: none; 
-  }
-
-  /* 三本線を押した時（active）だけ全画面で表示 */
+  #navMenu { display: none; }
   #navMenu.active {
     display: flex !important;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: 0; left: 0; width: 100vw; height: 100vh;
     background: rgba(10, 10, 10, 0.98);
     flex-direction: column;
     justify-content: center;
@@ -278,23 +266,9 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
     z-index: 2000;
   }
 
-  #navMenu ul {
-    flex-direction: column;
-    gap: 12px;
-    padding: 0;
-    width: 100%;
-    text-align: center;
-  }
+  #navMenu ul { flex-direction: column; gap: 12px; }
+  #navMenu a { font-size: 1.1rem; color: #fff; padding: 10px 0; display: block; }
 
-  #navMenu a {
-    writing-mode: horizontal-tb;
-    font-size: 1.1rem;
-    color: #fff;
-    padding: 10px 0;
-    display: block;
-  }
-
-  /* 特設サイトボタンの調整 */
   .nav-special {
     background: var(--primary-color) !important;
     padding: 8px 20px !important;
@@ -302,59 +276,36 @@ nav ul { display: flex; align-items: center; gap: 1.2rem; }
     border: 1px solid var(--accent-color) !important;
     font-size: 0.85rem !important;
     margin-top: 10px;
-    display: inline-block !important;
-    width: auto !important;
   }
 
-  /* 3. ハンバーガーボタンの設定 */
-  .hamburger {
-    display: block !important;
-    position: relative;
-    z-index: 2100;
-  }
-  .hamburger span {
-    width: 22px;
-    height: 1.5px;
-    margin: 5px 0;
-  }
+  .hamburger { display: block !important; position: relative; z-index: 2100; }
 
-  /* 4. メインメッセージ（タイピング）の文字切れ防止 */
+  /* --- 3. その他レイアウト調整 --- */
+  section { padding: 40px 5%; }
+  
   .typing {
     font-size: 1.1rem !important;
     width: 90%;
     margin: 0 auto 1rem;
     white-space: nowrap !important;
     overflow: hidden;
-    text-align: center;
     letter-spacing: -0.03em;
   }
 
-  /* 5. その他のスマホ最適化 */
   .sns-flex-container { flex-direction: column; align-items: center; gap: 20px; }
   .sns-ticket { width: 100%; max-width: 320px; height: 110px; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .process-wrapper { flex-direction: column; gap: 15px; }
-  .process-arrow { transform: rotate(90deg); margin: 5px 0; } /* 矢印を下に向け */
 
-  /* 下部固定ボタン */
   .mobile-sticky-cta {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
+    bottom: 0; left: 0; width: 100%; padding: 10px;
     background: rgba(10, 10, 10, 0.95);
     z-index: 1000;
-    display: block;
   }
   .mobile-sticky-cta a {
-    display: block;
-    background: var(--primary-color);
-    color: #fff;
-    text-align: center;
-    padding: 12px;
-    border-radius: 5px;
-    font-size: 0.9rem;
+    display: block; background: var(--primary-color); color: #fff;
+    text-align: center; padding: 12px; border-radius: 5px;
     font-weight: bold;
   }
 }
@@ -366,6 +317,7 @@ footer { background: var(--bg-dark); color: #fff; text-align: center; padding: 6
 .prep-visual { width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; border: 1px solid #333; }
 
 .prep-board { text-align: center; color: var(--accent-color); padding: 15px 25px; border: 1px solid var(--accent-color); background: rgba(0, 0, 0, 0.7); transform: rotate(-2deg); }
+
 
 
 
