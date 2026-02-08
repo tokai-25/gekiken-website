@@ -41,32 +41,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 3. 予約ボタンの自動状態切り替え（固定ボタン・全箇所対応） ---
   const updateReservationButton = () => {
+    // form.runを含む全てのリンクを取得
     const reservationLinks = document.querySelectorAll("a[href*='form.run']");
-    const openDate = new Date('2026/02/14 10:00:00');
+    // ターゲット日時をISO形式（ハイフン区切り）で設定（ブラウザ互換性のため）
+    const openDate = new Date('2026-02-14T10:00:00');
     const now = new Date();
 
     reservationLinks.forEach(link => {
+      // 特定のクラスを持つリンクを除外
       if (link.classList.contains('nav-special')) return;
 
       if (now < openDate) {
-        link.innerText = "2/14 10:00 予約開始";
-        link.style.background = "#666"; 
+        // 【予約開始前】の状態
+        link.innerText = "2/14(土) 10:00 予約開始";
+        link.style.setProperty('background', '#666', 'important'); 
+        link.style.setProperty('color', '#fff', 'important');
         link.style.pointerEvents = "auto"; 
         link.style.cursor = "not-allowed";
         
-        if (link.parentElement.classList.contains('mobile-sticky-cta')) {
+        // スマホ用固定フッターなどの親要素がある場合
+        if (link.parentElement && link.parentElement.classList.contains('mobile-sticky-cta')) {
           link.parentElement.style.background = "#444";
         }
 
+        // クリック時にアラートを表示
         link.onclick = (e) => {
           e.preventDefault();
-          alert("【予約受付前】\n2月14日(火) 10:00より予約を開始いたします。カレンダー登録をご活用ください！");
+          alert("【予約受付前】\n2月14日(土) 10:00より予約を開始いたします。\n今しばらくお待ちください。");
         };
       } else {
+        // 【予約開始後】の状態（元のデザインに戻す）
+        link.innerText = "今すぐ予約";
         link.style.background = ""; 
+        link.style.color = "";
         link.style.cursor = "pointer";
-        link.onclick = null;
-        if (link.parentElement.classList.contains('mobile-sticky-cta')) {
+        link.onclick = null; // クリック制限を解除
+
+        if (link.parentElement && link.parentElement.classList.contains('mobile-sticky-cta')) {
           link.parentElement.style.background = "";
         }
       }
@@ -250,3 +261,4 @@ function getRouteToSquareHall() {
     window.open(mapUrl, '_blank');
 
 }
+
