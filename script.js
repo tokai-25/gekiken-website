@@ -42,14 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- 3. 予約ボタンの自動状態切り替え（固定ボタン・全箇所対応） ---
   const updateReservationButton = () => {
     const reservationLinks = document.querySelectorAll("a[href*='form.run']");
-    const openDate = new Date('2026/02/10 10:00:00');
+    const openDate = new Date('2026/02/14 10:00:00');
     const now = new Date();
 
     reservationLinks.forEach(link => {
       if (link.classList.contains('nav-special')) return;
 
       if (now < openDate) {
-        link.innerText = "2/10 10:00 予約開始";
+        link.innerText = "2/14 10:00 予約開始";
         link.style.background = "#666"; 
         link.style.pointerEvents = "auto"; 
         link.style.cursor = "not-allowed";
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         link.onclick = (e) => {
           e.preventDefault();
-          alert("【予約受付前】\n2月10日(火) 10:00より予約を開始いたします。カレンダー登録をご活用ください！");
+          alert("【予約受付前】\n2月14日(火) 10:00より予約を開始いたします。カレンダー登録をご活用ください！");
         };
       } else {
         link.style.background = ""; 
@@ -248,4 +248,5 @@ function getRouteToSquareHall() {
 
     // 新しいウィンドウ/タブで地図を開く
     window.open(mapUrl, '_blank');
+
 }
