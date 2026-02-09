@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PKPJ6TJ93R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PKPJ6TJ93R');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>東海大学クラブ連合会演劇研究会 | 公式サイト</title>
+  <meta name="description" content="東海大学湘南キャンパスを拠点に活動する演劇研究会（演研）の公式サイト。第193回卒業公演「あなたをみます」情報公開中。">
+  <meta name="keywords" content="東海大学,演劇研究会,演研,東海大学演劇,演劇サークル,湘南キャンパス,あなたをみます">
+  <link rel="canonical" href="https://tokai-25.github.io/gekiken-website/">
+
+  <meta property="og:title" content="東海大学クラブ連合会演劇研究会 | 公式サイト">
+  <meta property="og:description" content="舞台の裏表すべてを学生が創り上げる。最新公演「あなたをみます」予約情報はこちら。">
+  <meta property="og:image" content="https://tokai-25.github.io/gekiken-website/image/ogp-image.webp">
+  <meta property="og:url" content="https://tokai-25.github.io/gekiken-website/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@TokaiGekiken">
+
+  <link rel="icon" href="./image/image-icon.webp">
+  <link rel="icon" href="https://tokai-25.github.io/gekiken-website/image/image-icon.webp" sizes="any">
+
+  <link rel="apple-touch-icon" href="https://tokai-25.github.io/gekiken-website/image/image-icon.webp">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TheaterGroup",
+    "name": "東海大学クラブ連合会 演劇研究会",
+    "url": "https://tokai-25.github.io/gekiken-website/",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "平塚市",
+      "addressRegion": "神奈川県",
+      "streetAddress": "北金目4-1-1 東海大学湘南キャンパス"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div class="mobile-sticky-cta">
+    <button onclick="getRouteToSquareHall()" class="sticky-btn-map">
+      <i class="fas fa-location-arrow"></i> 会場(コムスクエア音楽ホール)
+    </button>
+    <a href="https://form.run/@gongfuheimu--KhhdajU7fM9XlkM1XXs9" target="_blank" class="sticky-btn-reserve">
+      今すぐ予約する
+    </a>
+  </div>
+
+  <div id="loader">
+    <div class="curtain left"></div>
+    <div class="curtain right"></div>
+    <div class="loader-logo">東海大学 クラブ連合会 演劇研究会</div>
+  </div>
+
+  <header>
+    <div class="logo">東海大学クラブ連合会演劇研究会</div>
+    <nav id="navMenu">
+      <ul>
+        <li><a href="#latest">最新公演</a></li>
+        <li><a href="#faq">観劇案内</a></li>
+        <li><a href="#about">団体紹介</a></li>
+        <li><a href="#archive">過去公演</a></li>
+        <li><a href="#sns">SNS</a></li>
+       <li><a href="https://form.run/..." class="nav-special">今すぐ予約</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-slides">
+        <div class="slide active" style="background-image: url('image/image-open1.webp')"></div>
+        <div class="slide" style="background-image: url('image/image-open2.webp')"></div>
+        <div class="slide" style="background-image: url('image/image-open3.webp')"></div>
+        <div class="slide" style="background-image: url('image/image-open4.webp')"></div>
+        <div class="slide" style="background-image: url('image/image-open5.webp')"></div>
+      </div>
+      <div class="hero-content">
+        <h1 class="typing">
+          <span style="display:none;">東海大学クラブ連合会 演劇研究会 公式サイト</span>
+          物語が、ここから始まる。
+        </h1>
+        <p class="hero-subtitle">予約受付まで あと <span id="countdown">--</span> 日</p>
+        <div style="margin-top: 20px;">
+          <a href="#latest" class="button hero-cta">公演詳細をみる</a>
+          <a href="https://form.run/@gongfuheimu--KhhdajU7fM9XlkM1XXs9" class="button hero-cta" target="_blank" style="background: rgba(255,255,255,0.2); border: 1px solid #fff; margin-left: 10px;">今すぐ予約</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="latest" class="fade-in">
+      <h2>最新公演情報</h2>
+      <div class="card highlight">
+        <h3>第193回 2c卒業公演「あなたをみます」</h3>
+        <p>会場：東海大学 湘南キャンパス コムスクエア音楽ホール</p>
+        
+        <div class="timetable-box">
+          <h4>【上演スケジュール】</h4>
+          <table class="timetable" style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
+            <tr><th style="padding: 8px; border-bottom: 1px solid #eee; text-align: left;">3月1日(日)</th><td style="padding: 8px; border-bottom: 1px solid #eee;">13:00 (1ステ) / 18:00 (2ステ)</td></tr>
+            <tr><th style="padding: 8px; border-bottom: 1px solid #eee; text-align: left;">3月2日(月)</th><td style="padding: 8px; border-bottom: 1px solid #eee;">15:00 (3ステ)</td></tr>
+            <tr><th style="padding: 8px; border-bottom: 1px solid #eee; text-align: left;">3月3日(火)</th><td style="padding: 8px; border-bottom: 1px solid #eee;">13:00 (千秋楽)</td></tr>
+          </table>
+          <p class="note" style="font-size: 0.85rem; color: #666;">※受付・開場は開演の30分前です。</p>
+
+          <div class="important-notice" style="border: 2px solid #ff4d4d; padding: 15px; border-radius: 8px; margin-top: 20px; background-color: #fffafa; line-height: 1.6;">
+            <p style="color: #ff4d4d; font-weight: bold; margin: 0 0 10px 0; text-align: center; font-size: 1.1rem;">
+              【重要】予約開始日変更のお知らせ
+            </p>
+            <p style="font-size: 0.9rem; margin: 5px 0; text-align: center; color: #333;">
+            諸般の事情により、予約開始日時を以下の通り変更いたしました。<br>
+            楽しみにお待ちいただいていた皆様には心よりお詫び申し上げます。
+            </p>
+            <p style="font-size: 1.2rem; color: #ff4d4d; font-weight: bold; margin: 10px 0; text-align: center; border-top: 1px dashed #ff4d4d; border-bottom: 1px dashed #ff4d4d; padding: 10px 0;">
+              変更後：2月14日(土) 10:00 開始
+            </p>
+            <p style="font-size: 0.8rem; margin: 10px 0 0 0; text-align: center; color: #666;">
+              ※上記は現時点での予定です。今後さらなる変更がある場合は、<br>
+              当サイトおよび公式𝕏,Instagramにて速やかにお知らせいたします。
+            </p>
+          </div>
+        </div>
+
+        <div style="margin: 30px 0; text-align: center;">
+          <a class="button hero-cta" href="https://form.run/@gongfuheimu--KhhdajU7fM9XlkM1XXs9" target="_blank">今すぐ予約する</a>
+        </div>
+
+        <div class="calendar-section" style="border-top: 1px dashed #444; padding-top: 25px;">
+          <div class="reservation-reminder-box" style="margin-bottom: 25px;">
+            <p style="font-size: 0.85rem; color: var(--primary-color); font-weight: bold; margin-bottom: 10px;">🔔 予約開始を忘れないようにする</p>
+            <a class="button-calendar-primary" target="_blank" href="https://www.google.com/calendar/render?action=TEMPLATE&text=【予約開始】演劇研究会「あなたをみます」&dates=20260210T100000/20260210T103000&details=予約フォームから申し込みを開始してください。&location=オンライン予約">
+              2/14(土) 10:00 予約開始を登録
+            </a>
+          </div>
+
+          <div class="day-calendar-list">
+            <p style="font-size: 0.8rem; color: #444; margin-bottom: 10px;">公演予定をカレンダーへ：</p>
+            <div class="calendar-link-group" style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+              <a class="cal-link" href="https://www.google.com/calendar/render?action=TEMPLATE&text=演劇研究会「あなたをみます」&dates=20260301T130000/20260301T150000&location=コムスクエア音楽ホール">3/1 13:00</a>
+              <a class="cal-link" href="https://www.google.com/calendar/render?action=TEMPLATE&text=演劇研究会「あなたをみます」&dates=20260301T180000/20260301T200000&location=コムスクエア音楽ホール">3/1 18:00</a>
+              <a class="cal-link" href="https://www.google.com/calendar/render?action=TEMPLATE&text=演劇研究会「あなたをみます」&dates=20260302T150000/20260302T170000&location=コムスクエア音楽ホール">3/2 15:00</a>
+              <a class="cal-link" href="https://www.google.com/calendar/render?action=TEMPLATE&text=演劇研究会「あなたをみます」&dates=20260303T130000/20260303T150000&location=コムスクエア音楽ホール">3/3 13:00</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-premium fade-in">
+      <div class="about-card">
+        <div class="card-deco-corner top-left"></div>
+        <div class="card-deco-corner bottom-right"></div>
+        <span class="about-tag">OUR IDENTITY</span>
+        <h2>手作りを極める集団。</h2>
+        <div class="about-content">
+          <p class="main-text">
+            脚本の一文字から、照明の一筋の光まで。私たちは「既製品」を使わず、
+            すべての工程において部員一人ひとりが職人としてこだわり抜きます。
+          </p>
+          <div class="craft-grid">
+            <div class="craft-item">
+              <span class="craft-icon">✒️</span>
+              <h3>脚本 / 演出</h3>
+              <p>伝えたい思いを文字にし、キャラクターに命を吹き込み、役者を率いる。物語の誕生から結末まで、すべての責任を背負い、舞台の核心を創り出す人。</p>
+            </div>
+            <div class="craft-item">
+              <span class="craft-icon">💡</span>
+              <h3>照明</h3>
+              <p>光の色を決め、色彩を乗せる。暗闇の中に感情の機微を映し出し、舞台上の空気を変える人。</p>
+            </div>
+            <div class="craft-item">
+              <span class="craft-icon">🔊</span>
+              <h3>音響</h3>
+              <p>効果音、そのキャラが聞いている「音」を届ける。0.1秒の操作で物語を増幅させ、劇空間の深みを作る人。</p>
+            </div>
+            <div class="craft-item">
+              <span class="craft-icon">🔨</span>
+              <h3> 装置 </h3>
+              <p> 何もない舞台に、物語の「世界」を建てる。木材を切り出し、色を塗り、0から空間を物理的に創り上げる。劇の屋台骨を支える、舞台の土台を創る人。 </p>
+            </div>
+            <div class="craft-item">
+              <span class="craft-icon">🧵</span>
+              <h3>衣装 / メイク</h3>
+              <p>役者の装いや小道具で「生活感」を形にする。役を一人の人間へと変え、作品に実存感を与える人。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="fade-in">
+      <h2>公演ができるまで</h2>
+      <div class="process-wrapper">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <h3>企画・本読み</h3>
+          <p>部員が書いた台本を選び、役を決めます。物語の解釈を深める大切な時間です。</p>
+        </div>
+        <div class="process-arrow">▶</div>
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <h3>稽古・製作</h3>
+          <p>役者は演技を磨き、スタッフは大道具や音響・照明プラン・舞台装置を作り上げます。</p>
+        </div>
+        <div class="process-arrow">▶</div>
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <h3>小屋入り</h3>
+          <p>ホールに舞台を建て、実際の光と音の中でリハーサルを繰り返します。</p>
+        </div>
+        <div class="process-arrow">▶</div>
+        <div class="process-step">
+          <div class="step-num">04</div>
+          <h3>本番</h3>
+          <p>幕が上がります。観客の皆様と一緒に、唯一無二の物語を共有します。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="roles" class="fade-in" style="background: #111; padding: 80px 0;">
+      <h2 style="color: #fff;"> セクション、用語紹介 </h2>
+      <div class="role-slider-container">
+        <p class="role-hint">アイコンをクリックして詳細を表示</p>
+        <div class="role-slider-track" id="roleTrack">
+          <div class="role-item" data-name="役者" data-desc="舞台上でキャラクターを演じ、物語を観客に届けるポジションです。"><img src="image/role-actor.webp" alt="役者"><span>役者</span></div>
+          <div class="role-item" data-name="照明" data-desc="光の色彩や強弱で、舞台の時間や心理描写を彩ります。"><img src="image/role-light.webp" alt="照明"><span>照明</span></div>
+          <div class="role-item" data-name="音響" data-desc="音楽や効果音を使って、劇中の空気感を作り上げます。"><img src="image/role-sound.webp" alt="音響"><span>音響</span></div>
+          <div class="role-item" data-name="装置" data-desc="舞台上に「壁」を建て、物語の世界を物理的に作り上げる職人集団です。"><img src="image/role-set.webp" alt="装置"><span>装置</span></div>
+          <div class="role-item" data-name="衣装メイク" data-desc="時代背景やキャラクターに合わせ、外見から役を完成させます。"><img src="image/role-staff.webp" alt="衣装メイク"><span>衣装メイク</span></div>
+          <div class="role-item" data-name="脚本" data-desc="物語の設計図を書き、言葉に命を吹き込む役割。演研では、部員自らが書き下ろす『創作脚本』による上演を活動の核としています。"><img src="image/role-design.webp" alt="脚本"><span>脚本</span></div>
+          <div class="role-item" data-name="演出" data-desc="作品の解釈を深め、演技や舞台美術の方向性を決定する役割。各セクションのアイデアを束ね、一つの舞台作品として昇華させる舵取り役です。"><img src="image/role-director.webp" alt="演出"><span>演出</span></div>
+          <div class="role-item" data-name="舞台監督" data-desc="安全と進行を管理し、稽古場から本番まで現場を統括するリーダーです。"><img src="image/role-director2.webp" alt="舞台監督"><span>舞台監督</span></div>
+          <div class="role-item" data-name="荒通し" data-desc="稽古の序盤で、全体の流れや位置関係を確認するために行う最初の通し稽古です。"><img src="image/role-staff1.webp" alt="荒通し"><span>荒通し</span></div>
+          <div class="role-item" data-name="2回通し" data-desc="精度を高めるため、一日に2回連続で通し稽古を行い、体力と集中力を鍛えます。"><img src="image/role-staff2.webp" alt="2回通し"><span>2回通し</span></div>
+          <div class="role-item" data-name="ラス通し" data-desc="稽古場で行う最後の通し稽古。ここで見つかった課題を本番へ繋げます。"><img src="image/role-staff3.webp" alt="ラス通し"><span>ラス通し</span></div>
+          <div class="role-item" data-name="ゲネプロ" data-desc="「ゲネラルプローベ」の略。本番同様の衣装・照明・音響で行う最終リハーサルです。"><img src="image/role-staff4.webp" alt="ゲネ"><span>ゲネ</span></div>
+        </div>
+        <div id="roleDescription" class="role-description-box">
+          <h4 id="roleTitle" style="color: var(--accent-color); margin-bottom: 10px;"></h4>
+          <p id="roleText"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="archive" class="fade-in">
+      <h2>公演アーカイブ</h2>
+
+      <p style="text-align: center; color: #888; font-size: 0.8rem; margin: -10px 0 20px 0; letter-spacing: 0.05em;">
+        <span style="border-bottom: 1px solid #444; padding-bottom: 2px;">※画像タップで各公演の詳細をご覧いただけます</span>
+      </p>
+
+      <div class="gallery-grid">
+        <a href="archive-192.html" class="gallery-item">
+          <img src="image/image-192.webp" alt="第192回公演">
+          <div class="gallery-overlay"><p class="play-title">第192回公演<br>「3c まほろばのトロイメライ」</p></div>
+        </a>
+        <a href="archive-191.html" class="gallery-item">
+          <img src="image/image-191.webp" alt="第191回公演">
+          <div class="gallery-overlay"><p class="play-title">第191回公演<br>「3c 夕焼け蛍」</p></div>
+        </a>
+        <a href="preparation.html" class="gallery-item">
+          <img src="image/image-190.webp" alt="第190回公演">
+          <div class="gallery-overlay"><p class="play-title">第190回公演<br>「1c 素晴らしき日々よ」</p></div>
+        </a>
+        <a href="preparation.html" class="gallery-item">
+          <img src="image/image-189.webp" alt="第189回公演">
+          <div class="gallery-overlay"><p class="play-title">第189回公演<br>「2c 童話 僕の月明かり」</p></div>
+        </a>
+      </div>
+    </section>
+    
+    <section id="backstage" class="fade-in">
+      <h2>舞台裏の風景</h2>
+      <div class="backstage-container">
+        <div class="backstage-grid">
+          <div class="backstage-photo">
+            <img src="image/S__18284550.webp" alt="制作">
+            <div class="photo-caption">物語を、形にする。</div>
+          </div>
+          <div class="backstage-photo">
+            <img src="image/S__18284549.webp" alt="稽古風景">
+            <div class="photo-caption">一瞬に、全力を注ぐ。</div>
+          </div>
+          <div class="backstage-photo">
+            <img src="image/S__18284547.webp" alt="装置製作">
+            <div class="photo-caption">1mmのズレも許さない。</div>
+          </div>
+          <div class="backstage-photo">
+            <img src="image/S__18284548.webp" alt="衣装小道具">
+            <div class="photo-caption">細部に、命を宿す.</div>
+          </div>
+          <div class="backstage-photo">
+            <img src="image/S__18284552.webp" alt="照明仕込み①">
+            <div class="photo-caption">灯体を組み上げる。</div>
+          </div>
+          <div class="backstage-photo">
+            <img src="image/S__18284551.webp" alt="照明仕込み②">
+            <div class="photo-caption">光を、導く。</div>
+          </div>
+        </div>
+        <p class="backstage-sub">一からこそ、伝えられる温度がある。</p>
+      </div> </section>
+
+    <section id="faq" class="fade-in">
+      <h2>観劇にあたって</h2>
+      <div class="faq-container">
+        <div class="card etiquette-card">
+          <h3><span class="icon">🔔</span> 観劇のマナー</h3>
+          <ul class="etiquette-list">
+            <li><strong>開演時間について</strong><p>開演直前は受付が混み合います。10分前までのご来場にご協力ください。</p></li>
+            <li><strong>音の出るもの</strong><p>スマホ等は電源からお切りください。上演中の私語もお控えください。</p></li>
+            <li><strong>撮影・録音</strong><p>上演中の写真撮影・録音・録画は、固くお断りしております。</p></li>
+            <li><strong>お荷物</strong><p>受付にてお預かり可能です。スタッフへお声がけください。</p></li>
+          </ul>
+        </div>
+        <div class="card faq-card">
+          <h3><span class="icon">❓</span> よくあるご質問</h3>
+          <div class="faq-item"><p class="question">Q. チケット代はかかりますか？</p><p class="answer">A. 原則として全公演「無料」です。</p></div>
+          <div class="faq-item"><p class="question">Q. 上演時間はどのくらいですか？</p><p class="answer">A. 概ね60分〜90分程度を予定しております。</p></div>
+          <div class="faq-item"><p class="question">Q. 予約なしでも入れますか？</p><p class="answer">A. 満席の際はお断りする場合があるため、事前予約を推奨しております。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sns" class="fade-in">
+      <h2>SNS & Information</h2>
+      <div class="sns-flex-container">
+        <div class="sns-ticket-container">
+          <a href="https://www.twitter.com/TokaiGekiken" target="_blank" class="sns-ticket">
+            <div class="ticket-stub"><span class="stub-text">ADMIT ONE</span></div>
+            <div class="ticket-main">
+              <div class="ticket-header">OFFICIAL 𝕏</div>
+              <div class="ticket-body"><p>稽古の様子や最新情報をリアルタイムでお届けします。</p></div>
+              <div class="ticket-footer">Follow Us →</div>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/tokai.gekiken" target="_blank" class="sns-ticket instagram">
+            <div class="ticket-stub"><span class="stub-text">ENTRY PASS</span></div>
+            <div class="ticket-main">
+              <div class="ticket-header">INSTAGRAM</div>
+              <div class="ticket-body"><p>舞台写真やオフショットなど劇団の「日常」を公開中。</p></div>
+              <div class="ticket-footer">Check Photos →</div>
+            </div>
+          </a>
+        </div>
+        <div class="blog-notebook-container">
+          <a href="https://gekiken08.jugem.jp/" target="_blank" class="blog-notebook">
+            <div class="notebook-spiral"></div>
+            <div class="notebook-content">
+              <span class="blog-tag">ACTIVITY LOG</span>
+              <h3 class="blog-headline">稽古場日記 / ブログ</h3>
+              <div class="notebook-lines"><p>文章で綴る、演研の舞台裏。</p><p>役者の想いやスタッフのこだわり。</p></div>
+              <span class="blog-more">日誌を読みに行く →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="access" class="fade-in">
+  <h2>アクセス</h2>
+  <div class="card access-card">
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3255.051939521345!2d139.271015376359!3d35.37915504646738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019a9021e2683f7%3A0xe0d8a7846d30d6d4!2z44K_44Km44Oz44K544Kv44Ko44Ki!5e0!3m2!1sja!2sjp!4v1715830000000!5m2!1sja!2sjp" 
+        width="100%" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <div class="map-action">
+      <button onclick="getRouteToSquareHall()" class="button map-btn">
+        <i class="fas fa-location-arrow"></i> 現在地からコムスクエアへのルート
+      </button>
+      <p class="map-note">※東海大学湘南キャンパス内、時計台近くの建物です。</p>
+    </div>
+
+    <div class="route-guide">
+      <h3>コムスクエア音楽ホールへの行き方</h3>
+      <div class="guide-grid">
+        <div class="guide-item"><div class="prep-visual"><div class="prep-board"><span class="prep-text">正門</span></div></div><p><span>1.</span> 東海大学前駅からバスまたは徒歩で正門へ。</p></div>
+        <div class="guide-item"><div class="prep-visual"><div class="prep-board"><span class="prep-text">1号館</span></div></div><p><span>2.</span> 正門正面の1号館を右手に進みます。</p></div>
+        <div class="guide-item"><div class="prep-visual"><div class="prep-board"><span class="prep-text">噴水</span></div></div><p><span>3.</span> 噴水広場を通り、時計台方面へ向かいます。</p></div>
+        <div class="guide-item"><div class="prep-visual"><div class="prep-board"><span class="prep-text">ホール</span></div></div><p><span>4.</span> コムスクエア内の音楽ホールが会場です。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer>
+    <p>© 2025 東海大学演劇研究会 | Designed by 4c黒木公輔</p>
+    <p>最終更新日：2025年1月26日</p>
+    <a href="javascript:void(0)" onclick="enterMembersPage()" style="display: block; margin-top: 15px; font-size: 0.8rem; color: #888; text-decoration: none;">部員・ご家族専用ページ</a>
+  </footer>
+
+  <a href="#hero" id="backToTop" aria-label="ページトップへ戻る">↑</a>
+  <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
