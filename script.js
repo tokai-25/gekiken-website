@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         countdownEl.textContent = days;
       } else {
         if (subtitleEl) {
-          subtitleEl.innerHTML = '<span style="color:#00001C; font-weight:bold; font-size:1.2rem;">チケット好評予約受付中！</span>';
+          subtitleEl.innerHTML = '<span style="color:#ffffff; font-weight:bold; font-size:1.2rem;">チケット好評予約受付中！</span>';
         }
       }
     }
@@ -261,6 +261,7 @@ function getRouteToSquareHall() {
     window.open(mapUrl, '_blank');
 
 }
+
 
 
 
