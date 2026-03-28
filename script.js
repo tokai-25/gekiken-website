@@ -262,7 +262,43 @@ function getRouteToSquareHall() {
 
 }
 
+// script.js の該当箇所を書き換え
 
+function createCherryBlossom() {
+  const container = document.body;
+  
+  // 【調整1】最大数を減らす（50 → 20〜30くらいが上品です）
+  const maxBlossoms = 40; 
 
+  setInterval(() => {
+    const currentBlossoms = document.querySelectorAll('.cherry-blossom').length;
 
+    if (currentBlossoms < maxBlossoms) {
+      const blossom = document.createElement('div');
+      blossom.classList.add('cherry-blossom');
 
+      const randomLeft = Math.random() * 100;
+      const randomSize = Math.random() * 8 + 8; // 少し小さくすると遠近感が出ます
+
+      // 【調整2】アニメーションの時間を長くする（5〜10秒 → 10〜15秒へ）
+      // 数字を大きくするほど、ゆっくり落ちます
+      const randomDuration = Math.random() * 5 + 10; 
+      
+      const randomDelay = Math.random() * 10; // 出現タイミングもバラけさせる
+
+      blossom.style.left = `${randomLeft}vw`;
+      blossom.style.width = `${randomSize}px`;
+      blossom.style.height = `${randomSize}px`;
+      blossom.style.animationDuration = `${randomDuration}s`;
+      blossom.style.animationDelay = `${randomDelay}s`;
+
+      container.appendChild(blossom);
+
+      setTimeout(() => {
+        blossom.remove();
+      }, (randomDuration + randomDelay) * 1000);
+    }
+  }, 500); // 【調整3】生成間隔を広げる（200ms → 800ms）
+}
+// ページ読み込み時に桜を降らせる
+window.addEventListener('load', createCherryBlossom);
