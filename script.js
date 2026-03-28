@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
       } else {
         // 【予約開始後】の状態（元のデザインに戻す）
-        link.innerText = "今すぐ予約";
+        link.innerText = "入部・見学の相談・質問をする";
         link.style.background = ""; 
         link.style.color = "";
         link.style.cursor = "pointer";
