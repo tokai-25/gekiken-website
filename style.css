@@ -675,3 +675,64 @@ footer { background: var(--bg-dark); color: #fff; text-align: center; padding: 6
         padding: 0 20px; /* 画面端に少し余裕を持たせる */
     }
 }
+
+/* --- 桜のエフェクト：最新版（透明度・揺れ・リアル感調整済み） --- */
+
+.cherry-blossom {
+  position: fixed;
+  top: -20px; /* 画面の外（少し上）からスタート */
+  
+  /* 【調整】透明度をさらに薄く（0.4）し、繊細な色味に */
+  background: rgba(255, 182, 193, 0.4); 
+  
+  /* 【調整】輪郭を少しぼかしてデジタル感を消す */
+  filter: blur(0.8px); 
+
+  /* 花びらの形 */
+  border-radius: 50% 0 50% 50%; 
+  z-index: 1000;
+  pointer-events: none;
+  
+  /* 【調整】落下(fall)と、風に舞う横揺れ(sway)を同時に適用 */
+  animation: fall linear infinite, sway ease-in-out infinite; 
+}
+
+/* 落下と回転のアニメーション */
+@keyframes fall {
+  0% {
+    opacity: 0;
+    transform: translateY(0) rotate(0deg);
+  }
+  15% {
+    opacity: 1; /* 落ち始めてからふわっと表示 */
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0; /* 下に着く前に消える */
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+/* 【新規】横揺れアニメーション：これでひらひら感が出ます */
+@keyframes sway {
+  0%, 100% {
+    margin-left: 0;
+  }
+  50% {
+    margin-left: 30px; /* 30pxの幅で左右に揺れる */
+  }
+}
+
+/* 花びらの中心部分（より自然に見せるための装飾） */
+.cherry-blossom::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 192, 203, 0.2);
+  border-radius: 50%;
+}
